@@ -18,7 +18,7 @@ const App = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
             <Link to="/login">Login</Link>
@@ -32,11 +32,11 @@ const App = () => {
       
       <Switch>
         
-        <Route path="/Landing">
+        <Route exact path="/">
           <Landing />
         </Route>
         
-        <Route exact path='/Home' render = {() => isAuthenticated ? <Home user={user} /> : <Redirect to="/" />}
+        <Route exact path='/home' render = {() => isAuthenticated ? <Home user={user} /> : <Redirect to="/" />}
         />
         
         <Route path="/Login" render = {() => (
@@ -47,9 +47,7 @@ const App = () => {
           <Signup setUser={setUser}/>
         )}/>
 
-        <Route path="/">
-          <Landing />
-        </Route>
+        
       </Switch>
     </div>
   </BrowserRouter>

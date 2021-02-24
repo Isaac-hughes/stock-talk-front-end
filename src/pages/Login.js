@@ -19,8 +19,12 @@ const LogIn = ({setUser}) => {
         })
         const data = await response.json()
         console.log(data)
-        setUser(data.savedUser)
-        localStorage.setItem("dataToken", data.token)
+        if(response.status === 200){
+            localStorage.setItem("dataToken", data.token)
+            setUser(data.savedUser)
+        } else {
+            console.log("Login failed")
+        }
     }
 
     return (

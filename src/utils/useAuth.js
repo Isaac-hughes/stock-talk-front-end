@@ -6,6 +6,7 @@ export const useAuth = async (setAuthentication) => {
     })
     if (response.status === 401){
         setAuthentication(false)
+        console.log("Unauthorized")
     } else {
         setAuthentication(true)
     }
