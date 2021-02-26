@@ -1,13 +1,16 @@
 import '../App.css';
 import React, {useState} from 'react'
+import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 
-const LogIn = ({setUser}) => {
+
+const LogIn = ({user, setUser, setIsAuthenticated}) => {
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
+    const [error, setError] = useState("")
+
 
     const formHandler = async (e) => {
         e.preventDefault()
-        console.log(email, pass)
 
         const response = await fetch("http://localhost:5000/users/login", {
             method: "POST",
@@ -18,21 +21,37 @@ const LogIn = ({setUser}) => {
             })
         })
         const data = await response.json()
-        console.log(data)
         if(response.status === 200){
             localStorage.setItem("dataToken", data.token)
-            setUser(data.savedUser)
+            await setUser(data)
+            setIsAuthenticated(true)
+            
         } else {
             console.log("Login failed")
+            setError(data.message)
         }
     }
 
     return (
-        <form onSubmit={formHandler}>
-            <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-            <input type="text" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
-            <button>Login</button>
-        </form>
+        <div>
+            <nav>
+                <button>
+                    <Link to="/home">Home</Link>
+                </button>
+                <button>
+                    <Link to="/login">Login</Link>
+                </button>
+                <button>
+                    <Link to="/signup">Sign Up</Link>
+                </button>
+            </nav>
+            <p className="error">{error}</p>
+            <form onSubmit={formHandler}>
+                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                <input type="password" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
+                <button>Login</button>
+            </form>
+        </div>
     )
 }
 export default LogIn

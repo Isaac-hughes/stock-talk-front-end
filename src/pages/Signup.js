@@ -1,8 +1,10 @@
 import '../App.css';
+import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
+
 
 import React, {useState} from 'react'
 
-const SignUp = ({setUser}) => {
+const SignUp = ({setUser, setIsAuthenticated}) => {
     const [name, setName] = useState("")
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
@@ -11,8 +13,7 @@ const SignUp = ({setUser}) => {
 
     const formHandler = async (e) => {
         e.preventDefault()
-        console.log(name, username, email, pass)
-
+        
         const response = await fetch("http://localhost:5000/users", {
             method: "POST",
             headers:{"Content-Type": "application/json"},
@@ -24,24 +25,35 @@ const SignUp = ({setUser}) => {
             })
         })
         const data = await response.json()
-        console.log(data)
+        
         if(response.status === 201){
-            setUser(data.savedUser)
             localStorage.setItem("dataToken", data.token)
+            await setUser(data.savedUser)
+            setIsAuthenticated(true)
         } else {
-            console.log("Sign up failed")
-            setError("Error")
+            setError(data.message)
         }
     }
 
 
     return (
         <div className="signupPage">
-            <p>{error}</p>
+            <nav>
+                <button>
+                    <Link to="/home">Home</Link>
+                </button>
+                <button>
+                    <Link to="/login">Login</Link>
+                </button>
+                <button>
+                    <Link to="/signup">Sign Up</Link>
+                </button>
+            </nav>
+            <p className="error">{error}</p>
             <form onSubmit={formHandler}>
                 <input className="signup-input" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
-                <input className="signup-input" type="text" placeholder="Username" pattern="[A-Za-z0-9]+" onChange={(e) => setUsername(e.target.value)} />
-                <input className="signup-input" type="email" pattern=".+@globex.com" maxlength="256" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                <input className="signup-input" type="text" placeholder="Username" pattern="[a-z0-9]+" onChange={(e) => setUsername(e.target.value)} />
+                <input className="signup-input" type="email" maxLength="256" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                 <input className="signup-input" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
                 <button>Sign Up</button>
             </form>
