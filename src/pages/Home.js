@@ -1,9 +1,13 @@
 import '../App.css';
+import React, {useState} from 'react'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 import LogoutButton from '../components/logout'
+import PostMap from '../components/postMap'
+
 
 
 const Home = ({user, setIsAuthenticated}) => {
+    
 
     const watchlistMap = () => {
         if(user.watchlist != undefined){
@@ -16,6 +20,9 @@ const Home = ({user, setIsAuthenticated}) => {
             return <div><p>loading...</p></div>
         }
     }
+
+    
+    
 
   return (
     <div className="Home">
@@ -33,7 +40,9 @@ const Home = ({user, setIsAuthenticated}) => {
       <h1>Home Page</h1>
       <p>{user.name}</p>
       {watchlistMap()}
-      
+      <div>
+        <PostMap user={user}/>
+      </div>
     </div>
   );
 }
