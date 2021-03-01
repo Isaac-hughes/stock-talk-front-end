@@ -1,17 +1,19 @@
 import '../App.css';
-import {getPost} from '../routes/getPost'
+import {getPost} from '../utils/getPost'
 
-const LikeButton = (id, user) => {
+const LikeButton = ({id, user}) => {
     
     const username = user.username
 
-    const handleClick = () => {
-        let post = getPost(id)
+    const handleClick = async () => {
+        let post = await getPost(id)
         let bool = post.likes.includes(username)
-        if(true){
+        if(bool){
             //unlike
+            console.log("unlike")
         } else {
             //like
+            console.log("like")
         }
     }
 

@@ -1,6 +1,7 @@
 import '../App.css';
 import React, {useState} from 'react'
 import {getPostsByFollowing} from '../utils/getPostsByFollowing'
+import LikeButton from './likeButton'
 
 const PostMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)
@@ -8,22 +9,16 @@ const PostMap = ({user}) => {
     const [postLoaded, setPostLoaded] = useState(false)
     
     if(user.username != undefined){
-        console.log("a")
         if(!canLoad){
-            console.log("b")
             setCanLoad(true)
             getPostsByFollowing(setPosts, setPostLoaded)
         }
     } else {
         console.log("name undifined")
-        console.log(user)
     }
 
     if(canLoad){
-        console.log("c")
         if(postLoaded){
-            console.log("map called")
-            console.log(posts)
             return(
                 posts.map((data, index) => {
                     return (
@@ -31,12 +26,12 @@ const PostMap = ({user}) => {
                             <p>{data.content}</p>
                             <p>{data.username}</p>
                             <p>{data.likes.length} likes</p>
+                            <LikeButton id={data._id} user={data.username} />
                         </div>    
                     )
                 })
             )
         } else {
-            console.log("posts loading")
             return (
                 <div>
                     <p> Posts Loading... </p>
