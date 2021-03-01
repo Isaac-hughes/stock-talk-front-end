@@ -1,0 +1,39 @@
+import React, {useState} from 'react'
+
+const PostBox = () => {
+    const [content, setContent] = useState("")
+    const [error, setError] = useState("")
+
+
+    const formHandler = async (e) => {
+        e.preventDefault()
+
+        const response = await fetch("http://localhost:5000/posts", {
+            method: "POST",
+            headers:{"Authorization": `Bearer ${localStorage.getItem("dataToken")}`, "Content-Type": "application/json"},
+            body: JSON.stringify({
+                content: content
+            })
+        })
+        const data = await response.json()
+        if(response.status === 201){
+            console.log("Post Success")
+            
+        } else {
+            console.log("Post failed")
+            setError(data.message)
+        }
+    }
+
+    return (
+        <div>
+            <p className="error">{error}</p>
+            <form onSubmit={formHandler}>
+                <input type="text" placeholder="Make a post" onChange={(e) => setContent(e.target.value)} />
+                <button>Post</button>
+            </form>
+        </div>
+    )
+}
+
+export default PostBox

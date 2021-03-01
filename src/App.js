@@ -3,6 +3,7 @@ import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 import {useAuth} from "./utils/useAuth"
 import {getUserByToken} from "./utils/getUserByToken"
 import Home from "./pages/Home"
+import Explore from "./pages/Explore"
 import Landing from "./pages/Landing"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
@@ -44,6 +45,9 @@ const App = () => {
         }/>
 
         <Route exact path='/home' render = {() => isAuthenticated ? <Home user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}
+        />
+
+        <Route exact path='/explore' render = {() => isAuthenticated ? <Explore user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}
         />
         
       </Switch>

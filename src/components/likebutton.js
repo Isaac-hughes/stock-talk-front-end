@@ -1,8 +1,8 @@
 import '../App.css';
 import React, {useState} from 'react'
 import {getPost} from '../utils/getPost'
-import {like} from '../utils/like'
-import {unlike} from '../utils/unlike'
+import {like, unlike} from '../utils/like'
+
 
 const LikeButton = ({id, user, likeCount}) => {
 
@@ -11,7 +11,7 @@ const LikeButton = ({id, user, likeCount}) => {
     const handleClick = async () => {
         let post = await getPost(id)
         let bool = false
-        for(let i = 0; post[0].likes.length; i++){
+        for(let i = 0; i < post[0].likes.length; i++){
           if(post[0].likes[i].username === user.username){
             bool = true
             break

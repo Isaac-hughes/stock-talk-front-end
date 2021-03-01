@@ -2,12 +2,12 @@ import '../App.css';
 import React, {useState} from 'react'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 import LogoutButton from '../components/logout'
-import PostMap from '../components/postMap'
-import PostBox from '../components/postBox'
+import ExploreMap from '../components/exploreMap'
 
 
 
-const Home = ({user, setIsAuthenticated}) => {
+const Explore = ({user, setIsAuthenticated}) => {
+    
 
     const watchlistMap = () => {
         if(user.watchlist !== undefined){
@@ -25,7 +25,7 @@ const Home = ({user, setIsAuthenticated}) => {
     
 
   return (
-    <div className="Home">
+    <div className="Explore">
         <nav>
         
         <button>
@@ -40,17 +40,14 @@ const Home = ({user, setIsAuthenticated}) => {
 
         
       </nav>
-      <h1>Home Page</h1>
+      <h1>Explore Page</h1>
       <p>{user.name}</p>
       {watchlistMap()}
       <div>
-        <PostBox />
-      </div>
-      <div>
-        <PostMap user={user}/>
+       <ExploreMap user={user} />
       </div>
     </div>
   );
 }
 
-export default Home;
+export default Explore;
