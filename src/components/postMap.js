@@ -7,8 +7,9 @@ const PostMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)
     const [posts, setPosts] = useState([])
     const [postLoaded, setPostLoaded] = useState(false)
+
     
-    if(user.username != undefined){
+    if(user.username !== undefined){
         if(!canLoad){
             setCanLoad(true)
             getPostsByFollowing(setPosts, setPostLoaded)
@@ -21,12 +22,13 @@ const PostMap = ({user}) => {
         if(postLoaded){
             return(
                 posts.map((data, index) => {
+                    
                     return (
                         <div key={index} className="postWrapper">
                             <p>{data.content}</p>
                             <p>{data.username}</p>
-                            <p>{data.likes.length} likes</p>
-                            <LikeButton id={data._id} user={data.username} />
+                            <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
+                            
                         </div>    
                     )
                 })
@@ -41,7 +43,7 @@ const PostMap = ({user}) => {
     }else{
         return(
             <div>
-                <p> Posts Loading... User not Found</p>
+                <p> Posts Loading...</p>
             </div>
         )
     }
