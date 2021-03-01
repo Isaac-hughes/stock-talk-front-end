@@ -1,19 +1,19 @@
 import '../App.css';
 import React, {useState} from 'react'
-import {getPostsByFollowing} from '../utils/getPostsByFollowing'
+import {getAllPosts} from '../utils/getAllPosts'
 import LikeButton from './likeButton'
 import FollowButton from './followButton'
 
-const PostMap = ({user}) => {
+const ExploreMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)
     const [posts, setPosts] = useState([])
     const [postLoaded, setPostLoaded] = useState(false)
-
+console.log(user)
     
     if(user.username !== undefined){
         if(!canLoad){
             setCanLoad(true)
-            getPostsByFollowing(setPosts, setPostLoaded)
+            getAllPosts(setPosts, setPostLoaded)
         }
     } else {
         console.log("name undifined")
@@ -53,4 +53,4 @@ const PostMap = ({user}) => {
   
 }
 
-export default PostMap;
+export default ExploreMap;

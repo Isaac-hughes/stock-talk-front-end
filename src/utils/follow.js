@@ -1,8 +1,11 @@
-export const like = async (id) => {
+export const follow = async (id, username) => {
 
-    const sendData = {_id: id}
+    const sendData = {
+        _id: id,
+        username: username
+    }
     
-    const response = await fetch('http://localhost:5000/posts/like', {
+    const response = await fetch('http://localhost:5000/users/follow', {
         method: 'PATCH',
         headers: {"Authorization": `Bearer ${localStorage.getItem("dataToken")}`, "Content-Type": "application/json"},
         body: JSON.stringify(sendData)
@@ -11,13 +14,18 @@ export const like = async (id) => {
     if (response.status === 404){
         console.log("Unauthorized")
     } else {
-        console.log("liked the post")
+        console.log("followed user")
     }
 }
 
-export const unlike = async (id) => {
-    const sendData = {_id: id}
-    const response = await fetch('http://localhost:5000/posts/unlike', {
+export const unfollow = async (id, username) => {
+
+    const sendData = {
+        _id: id,
+        username: username
+    }
+    
+    const response = await fetch('http://localhost:5000/users/unfollow', {
         method: 'PATCH',
         headers: {"Authorization": `Bearer ${localStorage.getItem("dataToken")}`, "Content-Type": "application/json"},
         body: JSON.stringify(sendData)
@@ -26,6 +34,6 @@ export const unlike = async (id) => {
     if (response.status === 404){
         console.log("Unauthorized")
     } else {
-        console.log("unliked the post")
+        console.log("unfollowed user")
     }
 }
