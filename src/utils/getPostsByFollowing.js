@@ -5,8 +5,6 @@ export const getPostsByFollowing = async (setPosts, setPostLoaded) => {
     })
     
     const data = await response.json()
-    console.log("shark")
-    console.log(data)
     
     setPosts(data)
     setPostLoaded(true)

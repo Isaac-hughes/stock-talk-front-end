@@ -1,25 +1,38 @@
 import '../App.css';
+import React, {useState} from 'react'
 import {getPost} from '../utils/getPost'
+import {like} from '../utils/like'
+import {unlike} from '../utils/unlike'
 
-const LikeButton = ({id, user}) => {
-    
-    const username = user.username
+const LikeButton = ({id, user, likeCount}) => {
+
+    const [numLikes, setNumLikes] = useState(likeCount)
 
     const handleClick = async () => {
         let post = await getPost(id)
-        let bool = post.likes.includes(username)
+        let bool = false
+        for(let i = 0; post[0].likes.length; i++){
+          if(post[0].likes[i].username === user.username){
+            bool = true
+            break
+          }
+        }
         if(bool){
-            //unlike
-            console.log("unlike")
+            await unlike(id)
+            let num = numLikes - 1
+            setNumLikes(num)
         } else {
-            //like
-            console.log("like")
+            await like(id)
+            let num = numLikes + 1
+            setNumLikes(num)
+
         }
     }
 
   return (
     <div className="likeButton">
-      <button onClick={handleClick}>Like</button>
+      <p>{numLikes} likes</p>
+      <button onClick={handleClick}>&#9825;</button>
     </div>
   );
 }

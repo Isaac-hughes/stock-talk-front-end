@@ -10,7 +10,7 @@ const Home = ({user, setIsAuthenticated}) => {
     
 
     const watchlistMap = () => {
-        if(user.watchlist != undefined){
+        if(user.watchlist !== undefined){
             return(user.watchlist.map((data, index) => {
                 return(
                     <p key={index}>{data.ticker}</p>
