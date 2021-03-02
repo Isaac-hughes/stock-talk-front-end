@@ -8,7 +8,6 @@ const ExploreMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)
     const [posts, setPosts] = useState([])
     const [postLoaded, setPostLoaded] = useState(false)
-console.log(user)
     
     if(user.username !== undefined){
         if(!canLoad){
@@ -26,9 +25,9 @@ console.log(user)
                     
                     return (
                         <div key={index} className="postWrapper">
-                            <p>{data.content}</p>
                             <p>{data.username}</p>
                             <FollowButton user={user} author={data.username} authorID={data.author}/>
+                            <p>{data.content}</p>
                             <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
                             
                         </div>    

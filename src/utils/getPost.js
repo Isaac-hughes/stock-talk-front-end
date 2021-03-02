@@ -1,6 +1,6 @@
 
 export const getPost = async (id) => {
-    const response = await fetch(`http://localhost:5000/posts/getbyid/${id}`, {
+    const response = await fetch(`https://sociabull.herokuapp.com/posts/getbyid/${id}`, {
             method: "GET",
             headers: {"Authorization": `Bearer ${localStorage.getItem("dataToken")}`},
             

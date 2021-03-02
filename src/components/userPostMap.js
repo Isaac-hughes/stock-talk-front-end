@@ -1,12 +1,12 @@
 import '../App.css';
 import React, {useState} from 'react'
-import {getPostsByFollowing} from '../utils/getPostsByFollowing'
+import {getPostsByUsername} from '../utils/getPostsByUsername'
 import LikeButton from './likeButton'
 import FollowButton from './followButton'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 
 
-const PostMap = ({user}) => {
+const UserPostMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)
     const [posts, setPosts] = useState([])
     const [postLoaded, setPostLoaded] = useState(false)
@@ -15,7 +15,7 @@ const PostMap = ({user}) => {
     if(user.username !== undefined){
         if(!canLoad){
             setCanLoad(true)
-            getPostsByFollowing(setPosts, setPostLoaded)
+            getPostsByUsername(user, setPosts, setPostLoaded)
         }
     } else {
         console.log("name undifined")
@@ -29,8 +29,7 @@ const PostMap = ({user}) => {
                     return (
                         <div key={index} className="postWrapper">
                             <p>{data.content}</p>
-                            <Link to={`/userinfo/${data.username}`}>{data.username}</Link>
-                            <FollowButton user={user} author={data.username} authorID={data.author}/>
+                            <p>{data.username}</p>
                             <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
                             
                         </div>    
@@ -55,4 +54,4 @@ const PostMap = ({user}) => {
   
 }
 
-export default PostMap;
+export default UserPostMap;
