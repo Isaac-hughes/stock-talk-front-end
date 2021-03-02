@@ -13,11 +13,14 @@ const UserInfo = ({setIsAuthenticated}) => {
     // const [count, setCount] = useState(0)
     let { username } = useParams()
     
-    useEffect( async () => {
-        const data = await getUserByUsername(username, setIsLoaded)
-        setUserData(data)
-        
-    }, [])
+    useEffect(() => {
+    const fetchData = async () => {
+      const data = await getUserByUsername(username);
+      setUserData(data);
+      setIsLoaded(true);
+    };
+    fetchData();
+  }, []);
     
     if (isLoaded){
         console.log(userData, "car")

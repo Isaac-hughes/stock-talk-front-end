@@ -21,7 +21,7 @@ const UserInfoMap = ({userData, setIsAuthenticated}) => {
         }
     }
 
-    console.log(userData)
+    console.log(userData, "gggg")
     
     return (
         <div className="User">

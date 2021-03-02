@@ -8,8 +8,6 @@ export const getUserByUsername = async (username, setIsLoaded) => {
         console.log("Unauthorized")
         console.log(data)
     } else {
-        console.log(data, "fff")
-        setIsLoaded(true)
         return data
     }
 }
