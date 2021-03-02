@@ -3,10 +3,12 @@ import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 import {useAuth} from "./utils/useAuth"
 import {getUserByToken} from "./utils/getUserByToken"
 import Home from "./pages/Home"
+import Explore from "./pages/Explore"
 import Landing from "./pages/Landing"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import LogoutButton from './components/logout'
+import UserInfo from './pages/UserInfo'
 import './App.css';
 
 const App = () => {
@@ -18,7 +20,6 @@ const App = () => {
   if(user.name == undefined && isAuthenticated){
     getUserByToken(setUser)
   }
-
   return (
     <BrowserRouter>
     <div>
@@ -33,7 +34,10 @@ const App = () => {
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
-        
+
+        <Route exact path="/userinfo/:username">
+          <UserInfo setIsAuthenticated={setIsAuthenticated} />
+        </Route>
         
         <Route path="/Login" render = {() => 
           isAuthenticated ? <Redirect to="/home"/> : <Login user={user} setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>
@@ -44,6 +48,9 @@ const App = () => {
         }/>
 
         <Route exact path='/home' render = {() => isAuthenticated ? <Home user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}
+        />
+
+        <Route exact path='/explore' render = {() => isAuthenticated ? <Explore user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}
         />
         
       </Switch>
