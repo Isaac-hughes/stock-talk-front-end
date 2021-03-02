@@ -8,7 +8,6 @@ const ExploreMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)
     const [posts, setPosts] = useState([])
     const [postLoaded, setPostLoaded] = useState(false)
-console.log(user)
     
     if(user.username !== undefined){
         if(!canLoad){

@@ -4,31 +4,40 @@ import {follow, unfollow} from '../utils/follow'
 
 const FollowButton = ({user, author, authorID}) => {
 
+    let ownPost = false
+    if(author === user.username){
+        ownPost = true
+    }
+
+    let bool = false
+    let refresh = false
     const handleClick = async () => {
         let following = user.following
-        let bool = false
-        console.log(following.length)
-        for(let i = 0; i < following.length; i++){
-          if(following[i].username === author){
-            bool = true
-            break
-          }
+        if(!refresh){
+            for(let i = 0; i < following.length; i++){
+            if(following[i].username === author){
+                bool = true
+                break
+            }
+            }
+            refresh = true
         }
         console.log(bool)
         if(bool){
-            unfollow(authorID, author)
+            await unfollow(authorID, author)
             console.log("unfollow")
-            
+            bool = false
         } else {
-            follow(authorID, author)
+            await follow(authorID, author)
             console.log("follow")
-
+            bool = true
         }
     }
 
+
     return (
         <div>
-            <button className="followButton" onClick={handleClick}>Follow</button>
+            <button className="followButton" onClick={handleClick} disabled={ownPost}>Follow</button>
         </div>
     )
 }

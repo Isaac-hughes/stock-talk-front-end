@@ -16,6 +16,7 @@ export const follow = async (id, username) => {
     } else {
         console.log("followed user")
     }
+    
 }
 
 export const unfollow = async (id, username) => {
