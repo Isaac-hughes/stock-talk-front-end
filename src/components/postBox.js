@@ -8,7 +8,7 @@ const PostBox = () => {
     const formHandler = async (e) => {
         e.preventDefault()
         e.target.reset()
-        const response = await fetch("http://localhost:5000/posts", {
+        const response = await fetch("https://sociabull.herokuapp.com/posts", {
             method: "POST",
             headers:{"Authorization": `Bearer ${localStorage.getItem("dataToken")}`, "Content-Type": "application/json"},
             body: JSON.stringify({

@@ -1,5 +1,5 @@
 export const getUserByUsername = async (username, setIsLoaded) => {
-    const response = await fetch(`http://localhost:5000/users/${username}`, {
+    const response = await fetch(`https://sociabull.herokuapp.com/users/${username}`, {
         method: 'GET',
         headers: {"Authorization": `Bearer ${localStorage.getItem("dataToken")}`}
     })

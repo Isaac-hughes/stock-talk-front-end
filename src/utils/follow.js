@@ -5,7 +5,7 @@ export const follow = async (id, username) => {
         username: username
     }
     
-    const response = await fetch('http://localhost:5000/users/follow', {
+    const response = await fetch('https://sociabull.herokuapp.com/users/follow', {
         method: 'PATCH',
         headers: {"Authorization": `Bearer ${localStorage.getItem("dataToken")}`, "Content-Type": "application/json"},
         body: JSON.stringify(sendData)
@@ -26,7 +26,7 @@ export const unfollow = async (id, username) => {
         username: username
     }
     
-    const response = await fetch('http://localhost:5000/users/unfollow', {
+    const response = await fetch('https://sociabull.herokuapp.com/users/unfollow', {
         method: 'PATCH',
         headers: {"Authorization": `Bearer ${localStorage.getItem("dataToken")}`, "Content-Type": "application/json"},
         body: JSON.stringify(sendData)

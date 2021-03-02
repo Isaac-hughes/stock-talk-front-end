@@ -14,7 +14,7 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
     const formHandler = async (e) => {
         e.preventDefault()
         
-        const response = await fetch("http://localhost:5000/users", {
+        const response = await fetch("https://sociabull.herokuapp.com/users", {
             method: "POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -38,17 +38,7 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
 
     return (
         <div className="signupPage">
-            <nav>
-                <button>
-                    <Link to="/home">Home</Link>
-                </button>
-                <button>
-                    <Link to="/login">Login</Link>
-                </button>
-                <button>
-                    <Link to="/signup">Sign Up</Link>
-                </button>
-            </nav>
+            
             <p className="error">{error}</p>
             <form onSubmit={formHandler}>
                 <input className="signup-input" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
@@ -65,6 +55,17 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
                 <p id="number" className="invalid">A <b>number</b></p>
                 <p id="length" className="invalid">Minimum <b>8 characters</b></p>
             </div>
+            <nav>
+                <button>
+                    <Link to="/home">Home</Link>
+                </button>
+                <button>
+                    <Link to="/login">Login</Link>
+                </button>
+                <button>
+                    <Link to="/signup">Sign Up</Link>
+                </button>
+            </nav>
         </div>
     )
 }
