@@ -26,7 +26,13 @@ const Explore = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Explore">
-        <nav>
+      <h1>Explore Page</h1>
+      <p>{user.name}</p>
+      {watchlistMap()}
+      <div>
+       <ExploreMap user={user} />
+      </div>
+      <nav>
         
         <button>
           <Link to="/home">Home</Link>
@@ -40,12 +46,7 @@ const Explore = ({user, setIsAuthenticated}) => {
 
         
       </nav>
-      <h1>Explore Page</h1>
-      <p>{user.name}</p>
-      {watchlistMap()}
-      <div>
-       <ExploreMap user={user} />
-      </div>
+      
     </div>
   );
 }
