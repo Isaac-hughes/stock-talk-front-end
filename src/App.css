@@ -1,0 +1,42 @@
+body {
+        background-color: #02030d
+}
+
+#message {
+    color: #F8EDED;
+    text-align: center;
+
+}
+
+h1 {
+    color: #F8EDED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input { 
+    text-align: center;
+}
+
+html {
+    padding: 10vh;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}

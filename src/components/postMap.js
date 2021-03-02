@@ -5,7 +5,6 @@ import LikeButton from './likeButton'
 import FollowButton from './followButton'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 
-
 const PostMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)
     const [posts, setPosts] = useState([])
