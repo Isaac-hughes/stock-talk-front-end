@@ -13,7 +13,7 @@ const UserInfoMap = ({userData, setIsAuthenticated}) => {
         if(userData[0].watchlist !== undefined){
             return(userData[0].watchlist.map((data, index) => {
                 return(
-                    <p key={index}>{data.ticker}</p>
+                    <Link to={`/stockinfo/${data.ticker}`}>{data.ticker}</Link>
                 )
             }))
         }else{

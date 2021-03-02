@@ -9,6 +9,8 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import LogoutButton from './components/logout'
 import UserInfo from './pages/UserInfo'
+import StockInfo from './pages/StockInfo'
+import StockSearch from './pages/StockSearch'
 import './App.css';
 
 const App = () => {
@@ -38,6 +40,10 @@ const App = () => {
         <Route exact path="/userinfo/:username">
           <UserInfo setIsAuthenticated={setIsAuthenticated} />
         </Route>
+
+        <Route exact path="/stockinfo/:tickersymbol">
+          <StockInfo setIsAuthenticated={setIsAuthenticated} />
+        </Route>
         
         <Route path="/Login" render = {() => 
           isAuthenticated ? <Redirect to="/home"/> : <Login user={user} setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>
@@ -51,6 +57,9 @@ const App = () => {
         />
 
         <Route exact path='/explore' render = {() => isAuthenticated ? <Explore user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}
+        />
+
+        <Route exact path='/stocksearch' render = {() => isAuthenticated ? <StockSearch user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}
         />
         
       </Switch>
