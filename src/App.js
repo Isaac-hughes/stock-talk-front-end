@@ -8,6 +8,7 @@ import Landing from "./pages/Landing"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import LogoutButton from './components/logout'
+import UserInfo from './pages/UserInfo'
 import './App.css';
 
 const App = () => {
@@ -19,7 +20,6 @@ const App = () => {
   if(user.name == undefined && isAuthenticated){
     getUserByToken(setUser)
   }
-
   return (
     <BrowserRouter>
     <div>
@@ -34,7 +34,10 @@ const App = () => {
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
-        
+
+        <Route exact path="/userinfo/:username">
+          <UserInfo setIsAuthenticated={setIsAuthenticated} />
+        </Route>
         
         <Route path="/Login" render = {() => 
           isAuthenticated ? <Redirect to="/home"/> : <Login user={user} setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>

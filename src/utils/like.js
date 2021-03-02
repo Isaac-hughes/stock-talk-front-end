@@ -2,7 +2,7 @@ export const like = async (id) => {
 
     const sendData = {_id: id}
     
-    const response = await fetch('http://localhost:5000/posts/like', {
+    const response = await fetch('https://sociabull.herokuapp.com/posts/like', {
         method: 'PATCH',
         headers: {"Authorization": `Bearer ${localStorage.getItem("dataToken")}`, "Content-Type": "application/json"},
         body: JSON.stringify(sendData)
@@ -17,7 +17,7 @@ export const like = async (id) => {
 
 export const unlike = async (id) => {
     const sendData = {_id: id}
-    const response = await fetch('http://localhost:5000/posts/unlike', {
+    const response = await fetch('https://sociabull.herokuapp.com/posts/unlike', {
         method: 'PATCH',
         headers: {"Authorization": `Bearer ${localStorage.getItem("dataToken")}`, "Content-Type": "application/json"},
         body: JSON.stringify(sendData)

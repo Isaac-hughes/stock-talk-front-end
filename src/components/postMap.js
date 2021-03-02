@@ -3,6 +3,8 @@ import React, {useState} from 'react'
 import {getPostsByFollowing} from '../utils/getPostsByFollowing'
 import LikeButton from './likeButton'
 import FollowButton from './followButton'
+import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
+
 
 const PostMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)
@@ -27,7 +29,7 @@ const PostMap = ({user}) => {
                     return (
                         <div key={index} className="postWrapper">
                             <p>{data.content}</p>
-                            <p>{data.username}</p>
+                            <Link to={`/userinfo/${data.username}`}>{data.username}</Link>
                             <FollowButton user={user} author={data.username} authorID={data.author}/>
                             <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
                             

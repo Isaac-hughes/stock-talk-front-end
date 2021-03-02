@@ -1,15 +1,16 @@
 
 
-body {
+/* body {
     /* background-color: #02030D; */
-    background-image: /Users/colbyrobinson/Documents/VSCode-demo/stock-talk-front-end/src/content/photography_in_dubai;
+    /* background-image: /Users/colbyrobinson/Documents/VSCode-demo/stock-talk-front-end/src/content/photography_in_dubai;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
+} */ 
 
-
-
+.logo { background-image : url(/Users/colbyrobinson/Documents/VSCode-demo/stock-talk-front-end/src/content/sociabull_logo.png);
 }
+
 * {
   
     background: 0 10px 60px 0 #21B5B5(71, 195, 223, 0.1);
