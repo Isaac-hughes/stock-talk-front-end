@@ -23,7 +23,6 @@ const UserInfo = ({setIsAuthenticated}) => {
   }, []);
     
     if (isLoaded){
-        console.log(userData, "car")
         return (
             <UserInfoMap userData={userData} setIsAuthenticated={setIsAuthenticated}/>
         )

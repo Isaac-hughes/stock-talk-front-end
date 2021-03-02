@@ -1,5 +1,5 @@
 import '../App.css';
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {getPostsByUsername} from '../utils/getPostsByUsername'
 import LikeButton from './likeButton'
 import FollowButton from './followButton'
@@ -12,41 +12,35 @@ const UserPostMap = ({user}) => {
     const [postLoaded, setPostLoaded] = useState(false)
 
     
-    if(user.username !== undefined){
-        if(!canLoad){
+    
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getPostsByUsername(user.username)
+            setPosts(data);
+            setPostLoaded(true);
             setCanLoad(true)
-            getPostsByUsername(user, setPosts, setPostLoaded)
-        }
-    } else {
-        console.log("name undifined")
-    }
+        };
+        fetchData();
+    }, []);
+    
 
     if(canLoad){
-        if(postLoaded){
-            return(
-                posts.map((data, index) => {
-                    
-                    return (
-                        <div key={index} className="postWrapper">
-                            <p>{data.content}</p>
-                            <p>{data.username}</p>
-                            <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
-                            
-                        </div>    
-                    )
-                })
-            )
-        } else {
-            return (
-                <div>
-                    <p> Posts Loading... </p>
-                </div>
-            )
-        }
+        return(
+            posts.map((data, index) => {
+                return (
+                    <div key={index} className="postWrapper">
+                        <p>{data.content}</p>
+                        <p>{data.username}</p>
+                        <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
+                    </div>    
+                )
+            })
+        )    
     }else{
         return(
             <div>
-                <p> Posts Loading...</p>
+                <p> Posts Loading... </p>
             </div>
         )
     }
