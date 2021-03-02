@@ -25,7 +25,7 @@ useEffect(() => {
 }, [])
 
 const companyOverview = () => {
-  fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${tickersymbol}&apikey=U20EAXWUSJFCRADR`)
+  fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${tickersymbol}&apikey=SPAUSORYE9I5PQZF`)
 .then((res) => res.json())
 .then((data) => { 
   if (data.FullTimeEmployees == undefined) {
