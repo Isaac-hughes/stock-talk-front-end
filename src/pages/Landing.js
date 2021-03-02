@@ -14,7 +14,7 @@ const Landing = ({user, setUser, isAuthenticated, setIsAuthenticated}) => {
 
   return (
     <div className="Landing">
-      <nav>
+      <nav className="mainNav">
         <button>
           <Link to="/home">Home</Link>
         </button>

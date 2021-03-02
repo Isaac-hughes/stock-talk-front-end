@@ -8,13 +8,13 @@ import CashFlow from '../utils/api/CashFlow';
 import Earnings from '../utils/api/Earnings';
 import MarketStack from '../utils/api/MarketStack';
 import FunctionForm from '../utils/api/FunctionForm';
+import LogoutButton from '../components/logout'
 
 const StockSearch = ({setIsAuthenticated}) => {
-    console.log("stocksearch")    
   const [ticker, setTickers] = useState({})
   const [text, setText] = useState("")
   const [formDetails, setFormDetails] = useState([])
-  const [undef, setUndef] = useState(false)
+  const [undef, setUndef] = useState(true)
   const [comp, setComp] = useState("")
 
   const handleInput = (event) => {
@@ -28,6 +28,7 @@ const StockSearch = ({setIsAuthenticated}) => {
     
     companyOverview()
     setFormDetails(formDetails, text)
+    
   };
 
 const companyOverview = () => {
@@ -48,6 +49,23 @@ const companyOverview = () => {
 
     return(
       <div>
+      <nav className="mainNav">
+        
+        <button>
+          <Link to="/home">Home</Link>
+        </button>
+        <button>
+          <Link to="/explore">Explore</Link>
+        </button>
+        <button>
+          <Link to="/stocksearch">Stock Search</Link>
+        </button>
+        <LogoutButton setIsAuthenticated={setIsAuthenticated}>
+        <Link to="/landing"/>
+          </LogoutButton>
+
+        
+      </nav>
         <h2>Company Information (NASDAQ)</h2>
             <p>Enter ticker symbol below</p>
             <form onSubmit={handleSubmit}>
@@ -96,14 +114,8 @@ const companyOverview = () => {
         <h2>Stock Prices (Global)</h2>
         <br/>
       <MarketStack/> 
-      <br/>
-      {/* <PopChart/> */}
-      <br/>
-      <h2>Currency</h2>
-      <br/>
-      {/* <ForexIntraday/> */}
-      {/* <br/>
-      <CryptoDaily/> */}
+
+
       </div>
               </div>
             )}

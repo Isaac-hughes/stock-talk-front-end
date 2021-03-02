@@ -8,15 +8,13 @@ const BalanceSheet = (text, setText) => {
 
       const companyBalanceSheet = (e) => {
         e.preventDefault();
-        console.log(text, "jjjj")
         fetch(`https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol=${text.text}&apikey=U20EAXWUSJFCRADR`)
       .then((res) => res.json())
       .then((data) => { 
-        if (data.annualReports[0].goodwill == undefined) {
+        if (data.annualReports.length === 0) {
           setUndef(true);
         }else{
           setUndef(false)
-        console.log(data, "fred")
         let arr = balSheet
           arr.push(data)
           setBalSheet(arr)

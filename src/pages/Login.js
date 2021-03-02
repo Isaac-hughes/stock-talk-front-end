@@ -34,7 +34,7 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
 
     return (
         <div className="loginPage">
-            <nav>
+            <nav className="mainNav">
                 <button>
                     <Link to="/home">Home</Link>
                 </button>

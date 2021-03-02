@@ -1,7 +1,7 @@
 import '../App.css';
 import React, {useState} from 'react'
 import {getAllPosts} from '../utils/getAllPosts'
-import LikeButton from './likebutton'
+import LikeButton from './likeButton'
 import FollowButton from './followButton'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 

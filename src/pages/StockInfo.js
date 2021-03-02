@@ -39,7 +39,7 @@ const companyOverview = () => {
 }
     return(
       <div>
-        <nav>
+        <nav className="mainNav">
         
         <button>
           <Link to="/home">Home</Link>

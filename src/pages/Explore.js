@@ -26,7 +26,7 @@ const Explore = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Explore">
-        <nav>
+        <nav className="mainNav">
         
         <button>
           <Link to="/home">Home</Link>
