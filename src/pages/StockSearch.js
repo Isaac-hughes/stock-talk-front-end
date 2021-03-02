@@ -11,7 +11,7 @@ import FunctionForm from '../utils/api/FunctionForm';
 
 const StockSearch = ({setIsAuthenticated}) => {
     console.log("stocksearch")    
-  const [ticker, setTickers] = useState([])
+  const [ticker, setTickers] = useState({})
   const [text, setText] = useState("")
   const [formDetails, setFormDetails] = useState([])
   const [undef, setUndef] = useState(false)
@@ -38,9 +38,7 @@ const companyOverview = () => {
     setUndef(true);
   }else{
     setUndef(false)
-    let arr = ticker
-    arr.push(data)
-    setTickers(arr)
+    setTickers(data)
     setFormDetails("")
     setComp("")
 }
@@ -66,21 +64,19 @@ const companyOverview = () => {
               </div>
               ) : (
               <div>
-                {ticker.map(((data, index) => {
-                return (
-                  <div key={index}>
+                  <div>
                   <h1>Company Overview</h1>
-                  <p>Name: {data.Name}</p>
-                  <p>Ticker Symbol: {data.Symbol}</p>
-                  <p>Exchange: {data.Exchange}</p>
-                  <p>Currency: {data.Currency}</p>
-                  <p>Country: {data.Country}</p>
-                  <p>Sector: {data.Sector}</p>
-                  <p>Market Cap: ${data.MarketCapitalization}</p>
-                  <p>Dividende Per Share: ${data.DividendPerShare}</p>
-                  <p>Gross Profit Trailing Twelve Months: ${data.GrossProfitTTM}</p>
-                  <p>Analyst Target Price: ${data.AnalystTargetPrice}</p>
-                  <p>Description: {data.Description}</p>
+                  <p>Name: {ticker.Name}</p>
+                  <p>Ticker Symbol: {ticker.Symbol}</p>
+                  <p>Exchange: {ticker.Exchange}</p>
+                  <p>Currency: {ticker.Currency}</p>
+                  <p>Country: {ticker.Country}</p>
+                  <p>Sector: {ticker.Sector}</p>
+                  <p>Market Cap: ${ticker.MarketCapitalization}</p>
+                  <p>Dividende Per Share: ${ticker.DividendPerShare}</p>
+                  <p>Gross Profit Trailing Twelve Months: ${ticker.GrossProfitTTM}</p>
+                  <p>Analyst Target Price: ${ticker.AnalystTargetPrice}</p>
+                  <p>Description: {ticker.Description}</p>
                   <br/>
       <IncomeStatement text={text} setText={setText}/>
       <br/>
@@ -95,8 +91,7 @@ const companyOverview = () => {
       <br/>
       
                 </div>
-                )
-              }))}
+        
       <div>
         <h2>Stock Prices (Global)</h2>
         <br/>

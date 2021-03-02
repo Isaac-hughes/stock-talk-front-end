@@ -10,6 +10,7 @@ const Earnings = (text, setText) => {
         fetch(`https://www.alphavantage.co/query?function=EARNINGS&symbol=${text.text}&apikey=Y15SUFQ5VIGSQK0X`)
       .then((res) => res.json())
       .then((data) => { 
+        console.log(data)
         let arr = earnings
           arr.push(data)
           setEarnings(arr)
