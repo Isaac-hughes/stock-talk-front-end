@@ -1,7 +1,7 @@
 import '../App.css';
 import React, {useState} from 'react'
 import {getPostsByFollowing} from '../utils/getPostsByFollowing'
-import LikeButton from './likeButton'
+import LikeButton from './likebutton'
 
 const PostMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)

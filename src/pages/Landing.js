@@ -25,7 +25,7 @@ const Landing = ({user, setUser, isAuthenticated, setIsAuthenticated}) => {
           <Link to="/signup">Sign Up</Link>
         </button>
       </nav>
-      <h1>Landing Page</h1>
+      <h1>Sociabull</h1>
     </div>
   );
 }
