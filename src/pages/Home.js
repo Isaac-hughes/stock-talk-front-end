@@ -34,6 +34,9 @@ const Home = ({user, setIsAuthenticated}) => {
         <button>
           <Link to="/explore">Explore</Link>
         </button>
+        <button>
+          <Link to="/stocksearch">Stock Search</Link>
+        </button>
         <LogoutButton setIsAuthenticated={setIsAuthenticated}>
         <Link to="/landing"/>
           </LogoutButton>
