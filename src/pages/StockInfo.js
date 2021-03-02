@@ -1,13 +1,13 @@
 import '../App.css';
 import React, {useState, useEffect} from 'react'
 import {Route, BrowserRouter, Link, Redirect, Switch, useParams} from 'react-router-dom'
-import UserInfoMap from '../components/userInfoMap'
 import IncomeStatement from '../utils/api/IncomeStatement';
 import BalanceSheet from '../utils/api/BalanceSheet';
 import CashFlow from '../utils/api/CashFlow';
 import Earnings from '../utils/api/Earnings';
 import MarketStack from '../utils/api/MarketStack';
 import FunctionForm from '../utils/api/FunctionForm';
+import LogoutButton from '../components/logout'
 
 const StockInfo = ({setIsAuthenticated}) => {
   const { tickersymbol } = useParams()  
@@ -39,9 +39,27 @@ const companyOverview = () => {
 }
     return(
       <div>
+        <nav>
+        
+        <button>
+          <Link to="/home">Home</Link>
+        </button>
+        <button>
+          <Link to="/explore">Explore</Link>
+        </button>
+        <button>
+          <Link to="/stocksearch">Stock Search</Link>
+        </button>
+        <LogoutButton setIsAuthenticated={setIsAuthenticated}>
+        <Link to="/landing"/>
+          </LogoutButton>
+
+        
+      </nav>
         <h2>Company Information (NASDAQ)</h2>
               {undef ? (
               <div>
+                
                 Can only show company information for tickers on the NASDAQ
               </div>
               ) : (
@@ -86,7 +104,7 @@ const companyOverview = () => {
             )}
             </div>
     ) 
-    return null
+
 }
 
 export default StockInfo;
