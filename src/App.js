@@ -10,6 +10,7 @@ import Signup from "./pages/Signup"
 import LogoutButton from './components/logout'
 import UserInfo from './pages/UserInfo'
 import StockInfo from './pages/StockInfo'
+import StockSearch from './pages/StockSearch'
 import './App.css';
 
 const App = () => {
@@ -56,6 +57,9 @@ const App = () => {
         />
 
         <Route exact path='/explore' render = {() => isAuthenticated ? <Explore user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}
+        />
+
+        <Route exact path='/stocksearch' render = {() => isAuthenticated ? <StockSearch user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}
         />
         
       </Switch>

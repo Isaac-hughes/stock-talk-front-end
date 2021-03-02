@@ -9,21 +9,8 @@ import Earnings from '../utils/api/Earnings';
 import MarketStack from '../utils/api/MarketStack';
 import FunctionForm from '../utils/api/FunctionForm';
 
-const StockInfo = ({setIsAuthenticated}) => {
-
-    const [stockData, setStockData] = useState({})
-    const [isLoaded, setIsLoaded] = useState(false)
-    // let { ticker } = useParams()
-    // console.log(ticker)
-//     useEffect(() => {
-//     const fetchData = async () => {
-//       const data = await getUserByUsername(username);
-//       setUserData(data);
-//       setIsLoaded(true);
-//     };
-//     fetchData();
-//   }, []);
-    
+const StockSearch = ({setIsAuthenticated}) => {
+    console.log("stocksearch")    
   const [ticker, setTickers] = useState([])
   const [text, setText] = useState("")
   const [formDetails, setFormDetails] = useState([])
@@ -59,7 +46,6 @@ const companyOverview = () => {
 }
 })
 }
-console.log(comp)
 
 
     return(
@@ -135,16 +121,7 @@ console.log(comp)
 
 
 
-    // if (isLoaded){
-    //     return (
-    //         <StockInfoMap userData={userData} setIsAuthenticated={setIsAuthenticated}/>
-    //     )
-
-    // } else {
-    //     return <div> Loading </div>
-
-    // }
     return null
 }
 
-export default StockInfo;
+export default StockSearch;
