@@ -30,7 +30,7 @@ const PostMap = ({user}) => {
                         <div key={index} className="postWrapper">
                             <p>{data.content}</p>
                             <Link to={`/userinfo/${data.username}`}>{data.username}</Link>
-                            <FollowButton user={user} author={data.username} authorID={data.author}/>
+                            {/* <FollowButton user={user} author={data.username} authorID={data.author}/> */}
                             <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
                             
                         </div>    

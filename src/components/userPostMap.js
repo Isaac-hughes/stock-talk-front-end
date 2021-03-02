@@ -33,6 +33,7 @@ const UserPostMap = ({user}) => {
                         <p>{data.content}</p>
                         <p>{data.username}</p>
                         <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
+                        <FollowButton user={user} author={data.username} authorID={data.author}/>
                     </div>    
                 )
             })
