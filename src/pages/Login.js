@@ -33,7 +33,7 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
     }
 
     return (
-        <div>
+        <div className="loginPage">
             <nav>
                 <button>
                     <Link to="/home">Home</Link>

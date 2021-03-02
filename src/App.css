@@ -38,5 +38,21 @@ html {
 form {
     display: flex;
     flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.loginPage { 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
     align-content: center;
+    color: #F8EDED;
+}
+
+.signupPage {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    color: #F8EDED;
 }
