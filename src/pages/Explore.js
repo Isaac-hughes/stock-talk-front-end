@@ -13,7 +13,7 @@ const Explore = ({user, setIsAuthenticated}) => {
         if(user.watchlist !== undefined){
             return(user.watchlist.map((data, index) => {
                 return(
-                    <p key={index}>{data.ticker}</p>
+                    <Link to={`/stockinfo/${data.ticker}`}>{data.ticker}</Link>
                 )
             }))
         }else{
@@ -26,13 +26,16 @@ const Explore = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Explore">
-        <nav>
+        <nav className="mainNav">
         
         <button>
           <Link to="/home">Home</Link>
         </button>
         <button>
           <Link to="/explore">Explore</Link>
+        </button>
+        <button>
+          <Link to="/stocksearch">Stock Search</Link>
         </button>
         <LogoutButton setIsAuthenticated={setIsAuthenticated}>
         <Link to="/landing"/>

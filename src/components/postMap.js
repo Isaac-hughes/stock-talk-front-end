@@ -5,13 +5,11 @@ import LikeButton from './likeButton'
 import FollowButton from './followButton'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 
-
 const PostMap = ({user}) => {
     const [canLoad, setCanLoad] = useState(false)
     const [posts, setPosts] = useState([])
     const [postLoaded, setPostLoaded] = useState(false)
 
-    
     if(user.username !== undefined){
         if(!canLoad){
             setCanLoad(true)
@@ -28,10 +26,12 @@ const PostMap = ({user}) => {
                     
                     return (
                         <div key={index} className="postWrapper">
-                            <p>{data.content}</p>
-                            <Link to={`/userinfo/${data.username}`}>{data.username}</Link>
-                            <FollowButton user={user} author={data.username} authorID={data.author}/>
-                            <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
+                            <p className="postContent">{data.content}</p>
+                            <div className="postBottom">
+                                <Link to={`/userinfo/${data.username}`}>{data.username}</Link>
+                                <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
+
+                            </div>
                             
                         </div>    
                     )

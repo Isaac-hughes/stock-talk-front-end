@@ -13,7 +13,7 @@ const Home = ({user, setIsAuthenticated}) => {
         if(user.watchlist !== undefined){
             return(user.watchlist.map((data, index) => {
                 return(
-                    <p key={index}>{data.ticker}</p>
+                    <Link to={`/stockinfo/${data.ticker}`} className="ticker">{data.ticker}</Link>
                 )
             }))
         }else{
@@ -26,13 +26,16 @@ const Home = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Home">
-        <nav>
+        <nav className="mainNav">
         
         <button>
           <Link to="/home">Home</Link>
         </button>
         <button>
           <Link to="/explore">Explore</Link>
+        </button>
+        <button>
+          <Link to="/stocksearch">Stock Search</Link>
         </button>
         <LogoutButton setIsAuthenticated={setIsAuthenticated}>
         <Link to="/landing"/>
@@ -41,9 +44,11 @@ const Home = ({user, setIsAuthenticated}) => {
         
       </nav>
       <h1>Home Page</h1>
-      <p>{user.name}</p>
-      {watchlistMap()}
-      <div>
+      <p>My Watchlist</p>
+      <div className="watchlistWrap">
+        {watchlistMap()}
+      </div>
+      <div className="postBoxWrapper">
         <PostBox />
       </div>
       <div>
