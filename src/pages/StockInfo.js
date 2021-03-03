@@ -8,10 +8,11 @@ import Earnings from '../utils/api/Earnings';
 import MarketStack from '../utils/api/MarketStack';
 import FunctionForm from '../utils/api/FunctionForm';
 import LogoutButton from '../components/logout'
+import WatchlistButton from '../components/watchlistButton'
 
-//updated by fergus
 
-const StockInfo = ({setIsAuthenticated}) => {
+const StockInfo = ({setIsAuthenticated, user}) => {
+
   const { tickersymbol } = useParams()  
   const [ticker, setTickers] = useState({})
   const [text, setText] = useState("")
@@ -68,6 +69,7 @@ const companyOverview = () => {
               <div> 
                   <div>
                   <h1>Company Overview</h1>
+                  <WatchlistButton user={user} ticker={text}/>
                   <p>Name: {ticker.Name}</p>
                   <p>Ticker Symbol: {ticker.Symbol}</p>
                   <p>Exchange: {ticker.Exchange}</p>

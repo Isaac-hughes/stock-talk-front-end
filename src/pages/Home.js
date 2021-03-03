@@ -26,7 +26,20 @@ const Home = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Home">
+<<<<<<< HEAD
+      <h1>Home Page</h1>
+      <p>{user.name}</p>
+      {watchlistMap()}
+      <div>
+        <PostBox />
+      </div>
+      <div>
+        <PostMap user={user}/>
+      </div>
+      <nav>
+=======
         <nav className="mainNav">
+>>>>>>> 8ab0875ce008e4bbdc30af20a5a683b4daa74bd7
         
         <button>
           <Link to="/home">Home</Link>
@@ -40,9 +53,9 @@ const Home = ({user, setIsAuthenticated}) => {
         <LogoutButton setIsAuthenticated={setIsAuthenticated}>
         <Link to="/landing"/>
           </LogoutButton>
-
-        
       </nav>
+<<<<<<< HEAD
+=======
       <h1>Home Page</h1>
       <p>My Watchlist</p>
       <div className="watchlistWrap">
@@ -54,6 +67,7 @@ const Home = ({user, setIsAuthenticated}) => {
       <div>
         <PostMap user={user}/>
       </div>
+>>>>>>> 8ab0875ce008e4bbdc30af20a5a683b4daa74bd7
     </div>
   );
 }
