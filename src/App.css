@@ -28,7 +28,7 @@ h3 {
     align-items: center;
 }
 
-Home {
+.Home {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,11 +158,8 @@ a {
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
-<<<<<<< HEAD
 }}}
-=======
-    color: #F8EDED;
-}
+
 
 /* home css */
 .Home {
@@ -254,4 +251,3 @@ a {
     border-radius: 15px;
 
 }
->>>>>>> 8ab0875ce008e4bbdc30af20a5a683b4daa74bd7

@@ -26,7 +26,6 @@ const Explore = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Explore">
-<<<<<<< HEAD
       <h1>Explore Page</h1>
       <p>{user.name}</p>
       {watchlistMap()}
@@ -34,9 +33,7 @@ const Explore = ({user, setIsAuthenticated}) => {
        <ExploreMap user={user} />
       </div>
       <nav>
-=======
         <nav className="mainNav">
->>>>>>> 8ab0875ce008e4bbdc30af20a5a683b4daa74bd7
         
         <button>
           <Link to="/home">Home</Link>
