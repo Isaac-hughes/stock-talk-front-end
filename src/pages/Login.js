@@ -33,19 +33,8 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
     }
 
     return (
-<<<<<<< HEAD
-        <div>
-            <p className="error">{error}</p>
-            <form onSubmit={formHandler}>
-                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                <input type="password" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
-                <button>Login</button>
-            </form>
-            <nav>
-=======
         <div className="loginPage">
             <nav className="mainNav">
->>>>>>> 8ab0875ce008e4bbdc30af20a5a683b4daa74bd7
                 <button>
                     <Link to="/home">Home</Link>
                 </button>

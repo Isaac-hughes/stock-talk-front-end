@@ -37,5 +37,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Stock talk is a social media application for traders",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Isaac-hughes/stock-talk-front-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Isaac-hughes/stock-talk-front-end/issues"
+  },
+  "homepage": "https://github.com/Isaac-hughes/stock-talk-front-end#readme"
 }
