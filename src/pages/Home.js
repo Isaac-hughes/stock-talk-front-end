@@ -5,7 +5,7 @@ import LogoutButton from '../components/logout'
 import PostMap from '../components/postMap'
 import PostBox from '../components/postBox'
 
-//updated by fergus
+
 
 const Home = ({user, setIsAuthenticated}) => {
 

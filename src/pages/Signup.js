@@ -1,7 +1,6 @@
 import '../App.css';
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 
-//updated by fergus
 
 import React, {useState} from 'react'
 

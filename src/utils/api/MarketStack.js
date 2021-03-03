@@ -3,19 +3,16 @@ import Chart from 'react-apexcharts';
 
 const Intraday = () => { 
 
-    const [apiData, setApiData] = useState({})
-    const [price, setPrice] = useState({})
-    const [chart, setChart] = useState([])
-    const [chartPlot, setChartPlot] = useState(true)
+    const [price, setPrice] = useState([])
     const [text, setText] = useState("")
     const [formDetails, setFormDetails] = useState([])
     const [undef, setUndef] = useState(false)
-    const [comp, setComp] = useState("")
+    const [chart, setChart] = useState([])
+    const [chartPlot, setChartPlot] = useState(true)
 
     const handleInput = (event) => {
         // getting the value of the input and assigning to the state
         setText(event.target.value);
-        setComp(event.target.value);
       };
       const handleSubmit = (event) => {
         // stop default form behaviour which is to reload the page
@@ -26,33 +23,28 @@ const Intraday = () => {
       };
 
       const companyIntraday = () => {
-        fetch(`http://api.marketstack.com/v1/intraday?access_key=50bf475ef5b6b0f9498b98eab266ef2f&symbols=${comp}`)
+        fetch(`http://api.marketstack.com/v1/intraday?access_key=50bf475ef5b6b0f9498b98eab266ef2f&symbols=${text.text}`)
       .then((res) => res.json())
       .then((data) => { 
-        console.log(data)
-        setApiData(data)
-        if (data.data.length == 0) {
+        if (data.data[0].symbol == undefined) {
           setUndef(true);
         }else{
           setUndef(false)
-
-      
-          // setPrice(data.data)
-          console.log(apiData, "data")
-          setFormDetails("")
-          setComp("")
-
-        
-        // chartInfo()
+          let arr = price
+          arr.push(data)
+          setPrice(arr)
+          setText("")
+        console.log(data)
+        chartInfo()
       }
-     } )}
+        }  )}
 
      let chartInfo = () => {  
         const chartData =
         {
          options: {
              chart: {
-                 background: '#02030d',
+                 background: '#f4f4f4',
                  foreColor: '#333',
               },
          style: {
@@ -60,12 +52,12 @@ const Intraday = () => {
                  },
          xaxis: {
                  categories: [
-                  // price[0]["date"],
-                  // price[1]["date"],
-                  // price[2]["date"],
-                  // price[3]["date"],
-                  // price[4]["date"],
-                  // price[5].date
+                  price[0].data[0].date,
+                  price[0].data[1].date,
+                  price[0].data[2].date,
+                  price[0].data[3].date,
+                  price[0].data[4].date,
+                  price[0].data[5].date
                  ]
                  
              },
@@ -93,12 +85,12 @@ const Intraday = () => {
              series: [{
                  name: 'Share Price',
                  data: [
-                    //  price[0].high,
-                    //  price[1].high,
-                    //  price[2].high,
-                    //  price[3].high,
-                    //  price[4].high,
-                    //  price[5].high
+                     price[0].data[0].high,
+                     price[0].data[1].high,
+                     price[0].data[2].high,
+                     price[0].data[3].high,
+                     price[0].data[4].high,
+                     price[0].data[5].high
                  ]
              }],
              
@@ -108,10 +100,9 @@ const Intraday = () => {
          setChart(arr2)
          setChartPlot(false)
          console.log(chartData)
-         
         }
         
-// console.log(price[0]["date"], "price")
+
  
       return(
         <div>
@@ -130,15 +121,17 @@ const Intraday = () => {
               </div>
               ) : (
               <div>
-                
-                  <div>
-                  {/* <h1>Stock price for {price.data[0].symbol} on date {price.data[0].date}</h1>
-                  <p>High Price: {price.data[0].high}</p>
-                  <p>Current Price: {price.data[0].last}</p>
-                  <p>Low Price: {price.data[0].low}</p> */}
+                {price.map(((data, index) => {
+                return (
+                  <div key={index}>
+                  <h1>Stock price for {data.data[0].symbol} on date {data.data[0].date}</h1>
+                  <p>High Price: {data.data[0].high}</p>
+                  <p>Current Price: {data.data[0].last}</p>
+                  <p>Low Price: {data.data[0].low}</p>
                 </div>
                 
                 )
+              }))}
               
         </div>
           )}
@@ -157,7 +150,6 @@ const Intraday = () => {
         height="400"
         width="100%"
         fontSize="13px"
-
         />
                 
                 )
