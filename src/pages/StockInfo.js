@@ -9,6 +9,8 @@ import MarketStack from '../utils/api/MarketStack';
 import FunctionForm from '../utils/api/FunctionForm';
 import LogoutButton from '../components/logout'
 
+//updated by fergus
+
 const StockInfo = ({setIsAuthenticated}) => {
   const { tickersymbol } = useParams()  
   const [ticker, setTickers] = useState({})
