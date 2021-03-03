@@ -4,8 +4,6 @@ import {getUserByToken} from "../utils/getUserByToken"
 import {useAuth} from "../utils/useAuth"
 import clip from '../assets/landing.mp4';
 
-//updated by fergus
-
 const Landing = ({user, setUser, isAuthenticated, setIsAuthenticated}) => {
 
   useAuth(setIsAuthenticated)
@@ -27,6 +25,7 @@ const Landing = ({user, setUser, isAuthenticated, setIsAuthenticated}) => {
           <Link to="/signup">Sign Up</Link>
         </button>
       </nav>
+      
       <h1>Sociabull</h1>
         <video width="400px" height="400px" autoPlay loop muted className="top-vid">
           <source src={clip} type="video/mp4" />

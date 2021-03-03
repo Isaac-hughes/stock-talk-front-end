@@ -42,7 +42,7 @@ const App = () => {
         </Route>
 
         <Route exact path="/stockinfo/:tickersymbol">
-          <StockInfo setIsAuthenticated={setIsAuthenticated} />
+          <StockInfo setIsAuthenticated={setIsAuthenticated} user={user}/>
         </Route>
         
         <Route path="/Login" render = {() => 
@@ -53,7 +53,7 @@ const App = () => {
           isAuthenticated ? <Redirect to="/home"/> : <Signup user={user} setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>
         }/>
 
-        <Route exact path='/home' render = {() => isAuthenticated ? <Home user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}
+        <Route exact path='/home' render = {() => isAuthenticated ? <Home user={user} setIsAuthenticated={setIsAuthenticated} setUser={setUser} /> : <Redirect to="/landing" />}
         />
 
         <Route exact path='/explore' render = {() => isAuthenticated ? <Explore user={user} setIsAuthenticated={setIsAuthenticated} /> : <Redirect to="/landing" />}

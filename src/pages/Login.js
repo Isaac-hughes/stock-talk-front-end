@@ -2,7 +2,6 @@ import '../App.css';
 import React, {useState} from 'react'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 
-//updated by fergus
 
 const LogIn = ({user, setUser, setIsAuthenticated}) => {
     const [email, setEmail] = useState("")
@@ -34,6 +33,13 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
     }
 
     return (
+        <div>
+            <p className="error">{error}</p>
+            <form onSubmit={formHandler}>
+                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                <input type="password" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
+                <button>Login</button>
+            </form>
         <div className="loginPage">
             <nav className="mainNav">
                 <button>
@@ -46,12 +52,7 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
                     <Link to="/signup">Sign Up</Link>
                 </button>
             </nav>
-            <p className="error">{error}</p>
-            <form onSubmit={formHandler}>
-                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                <input type="password" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
-                <button>Login</button>
-            </form>
+            </div>
         </div>
     )
 }

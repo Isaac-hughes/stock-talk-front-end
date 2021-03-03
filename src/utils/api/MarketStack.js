@@ -11,6 +11,7 @@ const Intraday = () => {
     const [undef, setUndef] = useState(false)
     
 
+
     const handleInput = (event) => {
         // getting the value of the input and assigning to the state
         setText(event.target.value);
@@ -46,7 +47,7 @@ const Intraday = () => {
         {
          options: {
              chart: {
-                 background: '#02030d',
+                 background: '#f4f4f4',
                  foreColor: '#333',
               },
          style: {
@@ -152,7 +153,6 @@ const Intraday = () => {
         height="400"
         width="100%"
         fontSize="13px"
-
         />
                 
                 )

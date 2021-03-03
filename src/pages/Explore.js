@@ -4,7 +4,7 @@ import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 import LogoutButton from '../components/logout'
 import ExploreMap from '../components/exploreMap'
 
-//updated by fergus
+
 
 const Explore = ({user, setIsAuthenticated}) => {
     
@@ -26,6 +26,12 @@ const Explore = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Explore">
+      <h1>Explore Page</h1>
+      <p>{user.name}</p>
+      {watchlistMap()}
+      <div>
+       <ExploreMap user={user} />
+      </div>
         <nav className="mainNav">
         
         <button>
@@ -43,14 +49,9 @@ const Explore = ({user, setIsAuthenticated}) => {
 
         
       </nav>
-      <h1>Explore Page</h1>
-      <p>{user.name}</p>
-      {watchlistMap()}
-      <div>
-       <ExploreMap user={user} />
-      </div>
+      
     </div>
-  );
+  )
 }
 
 export default Explore;
