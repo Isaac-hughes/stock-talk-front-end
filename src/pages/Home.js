@@ -26,16 +26,7 @@ const Home = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Home">
-      <h1>Home Page</h1>
-      <p>{user.name}</p>
-      {watchlistMap()}
-      <div>
-        <PostBox />
-      </div>
-      <div>
-        <PostMap user={user}/>
-      </div>
-        <nav className="mainNav">        
+        <nav className="mainNav gradient-border">        
         <button>
           <Link to="/home">Home</Link>
         </button>
@@ -46,10 +37,9 @@ const Home = ({user, setIsAuthenticated}) => {
           <Link to="/stocksearch">Stock Search</Link>
         </button>
         <LogoutButton setIsAuthenticated={setIsAuthenticated}>
-        <Link to="/landing"/>
-          </LogoutButton>
+          <Link to="/landing"/>
+        </LogoutButton>
       </nav>
-      <h1>Home Page</h1>
       <p>My Watchlist</p>
       <div className="watchlistWrap">
         {watchlistMap()}

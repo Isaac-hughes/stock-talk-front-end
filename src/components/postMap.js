@@ -1,7 +1,7 @@
 import '../App.css';
 import React, {useState} from 'react'
 import {getPostsByFollowing} from '../utils/getPostsByFollowing'
-import LikeButton from './likebutton'
+import LikeButton from './likeButton'
 import FollowButton from './followButton'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 
@@ -28,8 +28,8 @@ const PostMap = ({user}) => {
                         <div key={index} className="postWrapper">
                             <p className="postContent">{data.content}</p>
                             <div className="postBottom">
-                                <Link to={`/userinfo/${data.username}`}>{data.username}</Link>
                                 <LikeButton id={data._id} user={user} likeCount={data.likes.length} />
+                                <Link to={`/userinfo/${data.username}`} className="username">{data.username}</Link>
 
                             </div>
                             

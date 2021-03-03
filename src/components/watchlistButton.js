@@ -2,20 +2,10 @@ import '../App.css';
 import React, {useState, useEffect} from 'react'
 import {addToWatchlist, removeFromWatchlist} from '../utils/watchlist'
 
-const WatchlistButton = ({user, ticker}) => {
-    const [watchlist, setWatchlist] = useState(user.watchlist)
-    const [bool, setBool] = useState(false)
-    console.log(user)
-    useEffect(() => {
-        for(let i = 0; i < watchlist.length; i++){
-            if(watchlist[i].ticker === ticker){
-                setBool(true)
-                break
-            }
-        }
-    }, [])
+const WatchlistButton = ({user, ticker, bool, loaded}) => {
 
     const handleClick = async () => {
+        console.log(bool)
         if(bool){
             await removeFromWatchlist(ticker)
         } else {
@@ -23,13 +13,28 @@ const WatchlistButton = ({user, ticker}) => {
         }
     }
 
+    const content = () => {
+        if(loaded){
+            if(bool){
+                return (
+                    <button onSubmit={handleClick}>Remove From Watchlist</button>
+                )
+            } else {
+                return (
+                    <button onSubmit={handleClick}>Add To Watchlist</button>
+                )
+            }
+        }else{
+            return (
+                <p>Loading ... </p>
+            )
+        }
+    }
+
+
   return (
     <div className="watchlistButton">
-      {bool ?
-      <button onClick={handleClick}>Remove from watchlist</button> :
-      <button onClick={handleClick}>Add to watchlist</button>
-      
-      }
+      {content()}
     </div>
   );
 }

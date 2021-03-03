@@ -49,7 +49,7 @@ const companyOverview = () => {
 
     return(
       <div>
-      <nav className="mainNav">
+      <nav className="mainNav gradient-border">
         
         <button>
           <Link to="/home">Home</Link>

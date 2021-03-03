@@ -13,7 +13,7 @@ const Explore = ({user, setIsAuthenticated}) => {
         if(user.watchlist !== undefined){
             return(user.watchlist.map((data, index) => {
                 return(
-                    <Link to={`/stockinfo/${data.ticker}`}>{data.ticker}</Link>
+                    <Link to={`/stockinfo/${data.ticker}`} className="ticker">{data.ticker}</Link>
                 )
             }))
         }else{
@@ -26,13 +26,7 @@ const Explore = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Explore">
-      <h1>Explore Page</h1>
-      <p>{user.name}</p>
-      {watchlistMap()}
-      <div>
-       <ExploreMap user={user} />
-      </div>
-        <nav className="mainNav">
+        <nav className="mainNav gradient-border">
         
         <button>
           <Link to="/home">Home</Link>
@@ -49,6 +43,14 @@ const Explore = ({user, setIsAuthenticated}) => {
 
         
       </nav>
+      <h1>Explore Page</h1>
+      <p>{user.name}</p>
+      <div className="watchlistWrap">
+      {watchlistMap()}
+      </div>
+      <div>
+       <ExploreMap user={user} />
+      </div>
       
     </div>
   )

@@ -13,14 +13,23 @@ import WatchlistButton from '../components/watchlistButton'
 const StockInfo = ({setIsAuthenticated, user}) => {
   const { tickersymbol } = useParams()  
   const [ticker, setTickers] = useState({})
-  const [text, setText] = useState("")
+  const [text, setText] = useState(tickersymbol)
   const [undef, setUndef] = useState(false)
+  const [bool, setBool] = useState(false)
+  const [loaded, setLoaded] = useState(false)
 
 
 useEffect(() => {
     const getData = async () => {
         await companyOverview()
-        setText(tickersymbol)
+        for(let i = 0; i < user.watchlist.length; i++){
+            if(user.watchlist[i].ticker === tickersymbol){
+                setBool(true)
+                break
+            }
+        }
+        setLoaded(true)
+        console.log(bool, "nice")
     }
     getData()
 }, [])
@@ -40,7 +49,7 @@ const companyOverview = () => {
 }
     return(
       <div>
-        <nav className="mainNav">
+        <nav className="mainNav gradient-border">
         
         <button>
           <Link to="/home">Home</Link>
@@ -58,7 +67,7 @@ const companyOverview = () => {
         
       </nav>
         <h2>Company Information (NASDAQ)</h2>
-              {undef ? (
+              {undef? (
               <div>
                 
                 Can only show company information for tickers on the NASDAQ
@@ -67,7 +76,7 @@ const companyOverview = () => {
               <div> 
                   <div>
                   <h1>Company Overview</h1>
-                  <WatchlistButton user={user} ticker={text}/>
+                  <WatchlistButton user={user} ticker={tickersymbol} bool={bool} loaded={loaded}/>
                   <p>Name: {ticker.Name}</p>
                   <p>Ticker Symbol: {ticker.Symbol}</p>
                   <p>Exchange: {ticker.Exchange}</p>
@@ -80,16 +89,16 @@ const companyOverview = () => {
                   <p>Analyst Target Price: ${ticker.AnalystTargetPrice}</p>
                   <p>Description: {ticker.Description}</p>
                   <br/>
-      <IncomeStatement text={text} setText={setText}/>
+      <IncomeStatement text={tickersymbol} setText={setText}/>
       <br/>
-      <BalanceSheet text={text} setText={setText}/>
+      <BalanceSheet text={tickersymbol} setText={setText}/>
       <br/>
-      <CashFlow text={text} setText={setText}/>
+      <CashFlow text={tickersymbol} setText={setText}/>
       <br/>
-      <Earnings text={text} setText={setText}/>
+      <Earnings text={tickersymbol} setText={setText}/>
       <br/>
   
-      <FunctionForm text={text} setText={setText}/>
+      <FunctionForm text={tickersymbol} setText={setText}/>
       <br/>
       
       </div>

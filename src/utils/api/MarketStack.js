@@ -47,8 +47,8 @@ const Intraday = () => {
         {
          options: {
              chart: {
-                 background: '#f4f4f4',
-                 foreColor: '#333',
+                 background: '#02030D',
+                 foreColor: '#f295de',
               },
          style: {
                    fontSize: '13px'   
