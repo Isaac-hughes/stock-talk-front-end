@@ -77,7 +77,7 @@ const companyOverview = () => {
               <button type="submit">Search</button>
             </form>
               {undef ? (
-              <div>
+              <div className="noCompanyMessage">
                 No company found
               </div>
               ) : (

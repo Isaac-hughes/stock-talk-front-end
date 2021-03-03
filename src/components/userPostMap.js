@@ -1,7 +1,7 @@
 import '../App.css';
 import React, {useState, useEffect} from 'react'
 import {getPostsByUsername} from '../utils/getPostsByUsername'
-import LikeButton from './likeButton'
+import LikeButton from './likebutton'
 import FollowButton from './followButton'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 
