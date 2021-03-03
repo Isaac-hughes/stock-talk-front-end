@@ -11,7 +11,10 @@ import FunctionForm from '../utils/api/FunctionForm';
 import LogoutButton from '../components/logout'
 import WatchlistButton from '../components/watchlistButton'
 
+const StockSearch = ({setIsAuthenticated}) => {
+
 const StockSearch = ({setIsAuthenticated, user}) => {
+
   const [ticker, setTickers] = useState({})
   const [text, setText] = useState("")
   const [formDetails, setFormDetails] = useState([])
