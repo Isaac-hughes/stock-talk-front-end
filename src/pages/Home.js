@@ -35,7 +35,6 @@ const Home = ({user, setIsAuthenticated}) => {
       <div>
         <PostMap user={user}/>
       </div>
-      <nav>
         <nav className="mainNav">        
         <button>
           <Link to="/home">Home</Link>

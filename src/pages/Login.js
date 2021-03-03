@@ -40,7 +40,6 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
                 <input type="password" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
                 <button>Login</button>
             </form>
-            <nav>
         <div className="loginPage">
             <nav className="mainNav">
                 <button>
@@ -53,6 +52,7 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
                     <Link to="/signup">Sign Up</Link>
                 </button>
             </nav>
+            </div>
         </div>
     )
 }

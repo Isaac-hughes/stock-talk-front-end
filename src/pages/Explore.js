@@ -32,7 +32,6 @@ const Explore = ({user, setIsAuthenticated}) => {
       <div>
        <ExploreMap user={user} />
       </div>
-      <nav>
         <nav className="mainNav">
         
         <button>
@@ -52,7 +51,7 @@ const Explore = ({user, setIsAuthenticated}) => {
       </nav>
       
     </div>
-  );
+  )
 }
 
 export default Explore;
