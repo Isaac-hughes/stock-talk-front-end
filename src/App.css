@@ -1,7 +1,7 @@
 *{
     font-family: 'Nunito', sans-serif;
     background: 0 10px 60px 0 #21B5B5(71, 195, 223, 0.1);
-    backdrop-filter: blur( 4.5px );
+    /* backdrop-filter: blur( 4.5px ); */
 } 
  
 body {
@@ -28,13 +28,88 @@ h3 {
     align-items: center;
 }
 
-h2 {
+
+.Home {
     display: flex;
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: center;
 }
 
+/* nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration-color: #02030D;
+    justify-content: center;
+    align-items: center;
+    overflow-anchor: bottom;
+    background-color: #21B5B5;  
+    position: sticky;
+    bottom: 0%;
+    width: 100%;
+  }
+  
+  nav a {
+    float: inline-end;
+    display: ruby-text-container;
+    color: #2c88b8;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 10px;
+  }
+  
+  nav a:hover {
+    background-color: #5C53FE;
+    color: black;
+  }
+  
+  nav a.active {
+    background-color: #2c88b8;
+    color: #5C53FE;
+  }
+  
+  nav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    nav a:not(:first-child) {display: none;}
+    nav a.icon {
+      float: right;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+  @media screen and (max-width: 600px) {
+    nav.responsive .icon {
+    position: absolute;
+    right: 0;
+    bottom:0;
+  }
+   nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+    @media screen and (max-width: 600px) {
+    nav.responsive .icon {
+      position: absolute;
+      right: 0;
+      bottom:0;
+    }
+    nav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+}
 input { 
     text-align: center;
 }
@@ -100,8 +175,8 @@ p {
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
-    color: #F8EDED;
-}
+}}}
+
 
 /* home css */
 .Home {

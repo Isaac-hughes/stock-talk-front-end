@@ -26,8 +26,16 @@ const Home = ({user, setIsAuthenticated}) => {
 
   return (
     <div className="Home">
-        <nav className="mainNav">
-        
+      <h1>Home Page</h1>
+      <p>{user.name}</p>
+      {watchlistMap()}
+      <div>
+        <PostBox />
+      </div>
+      <div>
+        <PostMap user={user}/>
+      </div>
+        <nav className="mainNav">        
         <button>
           <Link to="/home">Home</Link>
         </button>
@@ -40,8 +48,6 @@ const Home = ({user, setIsAuthenticated}) => {
         <LogoutButton setIsAuthenticated={setIsAuthenticated}>
         <Link to="/landing"/>
           </LogoutButton>
-
-        
       </nav>
       <h1>Home Page</h1>
       <p>My Watchlist</p>

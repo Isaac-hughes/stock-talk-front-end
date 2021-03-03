@@ -9,8 +9,9 @@ import Earnings from '../utils/api/Earnings';
 import MarketStack from '../utils/api/MarketStack';
 import FunctionForm from '../utils/api/FunctionForm';
 import LogoutButton from '../components/logout'
+import WatchlistButton from '../components/watchlistButton'
 
-const StockSearch = ({setIsAuthenticated}) => {
+const StockSearch = ({setIsAuthenticated, user}) => {
   const [ticker, setTickers] = useState({})
   const [text, setText] = useState("")
   const [formDetails, setFormDetails] = useState([])
@@ -19,13 +20,12 @@ const StockSearch = ({setIsAuthenticated}) => {
 
   const handleInput = (event) => {
     // getting the value of the input and assigning to the state
-    setText(event.target.value);
-    setComp(event.target.value);
+    setText(event.target.value.toUpperCase());
+    setComp(event.target.value.toUpperCase());
   };
   const handleSubmit = (event) => {
     // stop default form behaviour which is to reload the page
     event.preventDefault();
-    
     companyOverview()
     setFormDetails(formDetails, text)
     
@@ -84,6 +84,7 @@ const companyOverview = () => {
               <div>
                   <div>
                   <h1>Company Overview</h1>
+                  <WatchlistButton user={user} ticker={text}/>
                   <p>Name: {ticker.Name}</p>
                   <p>Ticker Symbol: {ticker.Symbol}</p>
                   <p>Exchange: {ticker.Exchange}</p>
