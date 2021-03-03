@@ -8,13 +8,13 @@ import CashFlow from '../utils/api/CashFlow';
 import Earnings from '../utils/api/Earnings';
 import MarketStack from '../utils/api/MarketStack';
 import FunctionForm from '../utils/api/FunctionForm';
+import LogoutButton from '../components/logout'
 
 const StockSearch = ({setIsAuthenticated}) => {
-    console.log("stocksearch")    
-  const [ticker, setTickers] = useState([])
+  const [ticker, setTickers] = useState({})
   const [text, setText] = useState("")
   const [formDetails, setFormDetails] = useState([])
-  const [undef, setUndef] = useState(false)
+  const [undef, setUndef] = useState(true)
   const [comp, setComp] = useState("")
 
   const handleInput = (event) => {
@@ -28,6 +28,7 @@ const StockSearch = ({setIsAuthenticated}) => {
     
     companyOverview()
     setFormDetails(formDetails, text)
+    
   };
 
 const companyOverview = () => {
@@ -38,9 +39,7 @@ const companyOverview = () => {
     setUndef(true);
   }else{
     setUndef(false)
-    let arr = ticker
-    arr.push(data)
-    setTickers(arr)
+    setTickers(data)
     setFormDetails("")
     setComp("")
 }
@@ -50,6 +49,23 @@ const companyOverview = () => {
 
     return(
       <div>
+      <nav className="mainNav">
+        
+        <button>
+          <Link to="/home">Home</Link>
+        </button>
+        <button>
+          <Link to="/explore">Explore</Link>
+        </button>
+        <button>
+          <Link to="/stocksearch">Stock Search</Link>
+        </button>
+        <LogoutButton setIsAuthenticated={setIsAuthenticated}>
+        <Link to="/landing"/>
+          </LogoutButton>
+
+        
+      </nav>
         <h2>Company Information (NASDAQ)</h2>
             <p>Enter ticker symbol below</p>
             <form onSubmit={handleSubmit}>
@@ -66,21 +82,19 @@ const companyOverview = () => {
               </div>
               ) : (
               <div>
-                {ticker.map(((data, index) => {
-                return (
-                  <div key={index}>
+                  <div>
                   <h1>Company Overview</h1>
-                  <p>Name: {data.Name}</p>
-                  <p>Ticker Symbol: {data.Symbol}</p>
-                  <p>Exchange: {data.Exchange}</p>
-                  <p>Currency: {data.Currency}</p>
-                  <p>Country: {data.Country}</p>
-                  <p>Sector: {data.Sector}</p>
-                  <p>Market Cap: ${data.MarketCapitalization}</p>
-                  <p>Dividende Per Share: ${data.DividendPerShare}</p>
-                  <p>Gross Profit Trailing Twelve Months: ${data.GrossProfitTTM}</p>
-                  <p>Analyst Target Price: ${data.AnalystTargetPrice}</p>
-                  <p>Description: {data.Description}</p>
+                  <p>Name: {ticker.Name}</p>
+                  <p>Ticker Symbol: {ticker.Symbol}</p>
+                  <p>Exchange: {ticker.Exchange}</p>
+                  <p>Currency: {ticker.Currency}</p>
+                  <p>Country: {ticker.Country}</p>
+                  <p>Sector: {ticker.Sector}</p>
+                  <p>Market Cap: ${ticker.MarketCapitalization}</p>
+                  <p>Dividende Per Share: ${ticker.DividendPerShare}</p>
+                  <p>Gross Profit Trailing Twelve Months: ${ticker.GrossProfitTTM}</p>
+                  <p>Analyst Target Price: ${ticker.AnalystTargetPrice}</p>
+                  <p>Description: {ticker.Description}</p>
                   <br/>
       <IncomeStatement text={text} setText={setText}/>
       <br/>
@@ -95,23 +109,16 @@ const companyOverview = () => {
       <br/>
       
                 </div>
-                )
-              }))}
+        
+              </div>
+            )}
       <div>
         <h2>Stock Prices (Global)</h2>
         <br/>
       <MarketStack/> 
-      <br/>
-      {/* <PopChart/> */}
-      <br/>
-      <h2>Currency</h2>
-      <br/>
-      {/* <ForexIntraday/> */}
-      {/* <br/>
-      <CryptoDaily/> */}
+
+
       </div>
-              </div>
-            )}
             </div>
     ) 
 

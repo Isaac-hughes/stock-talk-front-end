@@ -26,11 +26,11 @@ const PostBox = () => {
     }
 
     return (
-        <div>
+        <div className="postBoxWrapperInner">
             <p className="error">{error}</p>
             <form onSubmit={formHandler}>
-                <input type="text" placeholder="Make a post" onChange={(e) => setContent(e.target.value)} />
-                <button>Post</button>
+                <input className="postBox" type="text" placeholder="Make a post" onChange={(e) => setContent(e.target.value)} />
+                <button className="postButton">Post</button>
             </form>
         </div>
     )

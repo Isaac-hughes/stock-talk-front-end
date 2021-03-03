@@ -1,5 +1,12 @@
+*{
+    font-family: 'Nunito', sans-serif;
+    background: 0 10px 60px 0 #21B5B5(71, 195, 223, 0.1);
+    backdrop-filter: blur( 4.5px );
+} 
+ 
 body {
-        background-color: #02030d
+        background-color: #02030d;
+        color: #F8EDED;
 }
 
 #message {
@@ -25,6 +32,7 @@ Home {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 /* nav {
@@ -112,5 +120,138 @@ html {
 form {
     display: flex;
     flex-wrap: wrap;
+    align-content: space-around;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none; /* no underline */
+}
+
+.Landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginPage { 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
     align-content: center;
+    color: #F8EDED;
+}
+
+.signupPage {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+<<<<<<< HEAD
 }}}
+=======
+    color: #F8EDED;
+}
+
+/* home css */
+.Home {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.watchlistWrap {
+    width: 100%;
+    display: flex;
+    height: 100px;
+}
+
+.ticker {
+    padding-left: 20px;
+    width: 100px;
+    display: flex;
+    box-shadow: 0 20px 50px 0 rgba( 31, 38, 135, 0.37 );
+    justify-content: center;
+    align-items: center;
+    color: #21B5B5;
+}
+
+/* nav */
+.mainNav{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.mainNav :hover {
+    color: #f295de;
+}
+
+/* post css */
+.postWrapper {
+    background: #02030d;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 20px 50px 0 rgba( 31, 38, 135, 0.37 );
+}
+
+.postBottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.likeButton {
+    display: flex;
+
+}
+
+/* post box */
+.postBoxWrapper{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.postBoxWrapperInner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.postBox{
+    width: 300px;
+    height: 100px;
+    background-color: #2c88b8;
+    color: #f295de;
+    border-radius: 15px;
+}
+
+.postButton {
+    background-color: #21b5b5;
+    color: #02030d;
+    height: 20px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+
+}
+>>>>>>> 8ab0875ce008e4bbdc30af20a5a683b4daa74bd7

@@ -55,7 +55,7 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
                 <p id="number" className="invalid">A <b>number</b></p>
                 <p id="length" className="invalid">Minimum <b>8 characters</b></p>
             </div>
-            <nav>
+            <nav className="mainNav">
                 <button>
                     <Link to="/home">Home</Link>
                 </button>
