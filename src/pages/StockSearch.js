@@ -110,6 +110,8 @@ const companyOverview = () => {
       
                 </div>
         
+              </div>
+            )}
       <div>
         <h2>Stock Prices (Global)</h2>
         <br/>
@@ -117,8 +119,6 @@ const companyOverview = () => {
 
 
       </div>
-              </div>
-            )}
             </div>
     ) 
 
