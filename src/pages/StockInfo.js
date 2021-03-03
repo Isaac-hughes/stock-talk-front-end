@@ -10,9 +10,7 @@ import FunctionForm from '../utils/api/FunctionForm';
 import LogoutButton from '../components/logout'
 import WatchlistButton from '../components/watchlistButton'
 
-
 const StockInfo = ({setIsAuthenticated, user}) => {
-
   const { tickersymbol } = useParams()  
   const [ticker, setTickers] = useState({})
   const [text, setText] = useState("")

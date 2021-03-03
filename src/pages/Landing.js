@@ -4,8 +4,6 @@ import {getUserByToken} from "../utils/getUserByToken"
 import {useAuth} from "../utils/useAuth"
 import clip from '../assets/landing.mp4';
 
-//updated by fergus
-
 const Landing = ({user, setUser, isAuthenticated, setIsAuthenticated}) => {
 
   useAuth(setIsAuthenticated)

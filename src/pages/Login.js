@@ -2,7 +2,6 @@ import '../App.css';
 import React, {useState} from 'react'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 
-//updated by fergus
 
 const LogIn = ({user, setUser, setIsAuthenticated}) => {
     const [email, setEmail] = useState("")

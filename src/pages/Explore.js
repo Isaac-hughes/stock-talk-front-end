@@ -4,7 +4,7 @@ import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
 import LogoutButton from '../components/logout'
 import ExploreMap from '../components/exploreMap'
 
-//updated by fergus
+
 
 const Explore = ({user, setIsAuthenticated}) => {
     

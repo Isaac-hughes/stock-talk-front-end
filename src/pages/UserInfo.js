@@ -5,7 +5,6 @@ import UserInfoMap from '../components/userInfoMap'
 
 import {getUserByUsername} from '../utils/getUserByUsername'
 
-//updated by fergus
 
 const UserInfo = ({setIsAuthenticated}) => {
 
