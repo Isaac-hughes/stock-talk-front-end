@@ -25,7 +25,7 @@ const Intraday = (text, setText) => {
         {
          options: {
              chart: {
-                 background: '#f4f4f4',
+                 background: '#02030d',
                  foreColor: '#333',
               },
          style: {
