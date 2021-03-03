@@ -4,15 +4,18 @@ import Chart from 'react-apexcharts';
 const Intraday = () => { 
 
     const [price, setPrice] = useState([])
+    const [chart, setChart] = useState([])
+    const [chartPlot, setChartPlot] = useState(true)
     const [text, setText] = useState("")
     const [formDetails, setFormDetails] = useState([])
     const [undef, setUndef] = useState(false)
-    const [chart, setChart] = useState([])
-    const [chartPlot, setChartPlot] = useState(true)
+    
+
 
     const handleInput = (event) => {
         // getting the value of the input and assigning to the state
         setText(event.target.value);
+        setPrice([])
       };
       const handleSubmit = (event) => {
         // stop default form behaviour which is to reload the page
@@ -23,7 +26,7 @@ const Intraday = () => {
       };
 
       const companyIntraday = () => {
-        fetch(`http://api.marketstack.com/v1/intraday?access_key=50bf475ef5b6b0f9498b98eab266ef2f&symbols=${text.text}`)
+        fetch(`http://api.marketstack.com/v1/intraday?access_key=50bf475ef5b6b0f9498b98eab266ef2f&symbols=${text}`)
       .then((res) => res.json())
       .then((data) => { 
         if (data.data[0].symbol == undefined) {
