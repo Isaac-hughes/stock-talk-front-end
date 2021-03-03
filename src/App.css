@@ -1,7 +1,7 @@
 *{
     font-family: 'Nunito', sans-serif;
     background: 0 10px 60px 0 #21B5B5(71, 195, 223, 0.1);
-    backdrop-filter: blur( 4.5px );
+    /* backdrop-filter: blur( 4.5px ); */
 } 
  
 body {
