@@ -14,14 +14,14 @@ const WatchlistButton = ({user, ticker, bool, loaded}) => {
     }
 
     const content = () => {
-        if(loaded){
+        if(loaded || !loaded){
             if(bool){
                 return (
-                    <button onSubmit={handleClick}>Remove From Watchlist</button>
+                    <button onClick={handleClick}>Remove From Watchlist</button>
                 )
             } else {
                 return (
-                    <button onSubmit={handleClick}>Add To Watchlist</button>
+                    <button onClick={handleClick}>Add To Watchlist</button>
                 )
             }
         }else{
