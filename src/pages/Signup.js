@@ -38,6 +38,7 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
 
     return (
         <div className="signupPage">
+
             <nav className="mainNav">
                 <button>
                     <Link to="/home">Home</Link>
@@ -55,7 +56,7 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
                 <input className="signup-input" type="text" placeholder="Username" pattern="[a-z0-9]+" onChange={(e) => setUsername(e.target.value)} />
                 <input className="signup-input" type="email" maxLength="256" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                 <input className="signup-input" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
-                <button>Sign Up</button>
+                <button className="signUpButton">Sign Up</button>
             </form>
 
             <div id="message">
@@ -65,7 +66,6 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
                 <p id="number" className="invalid">A <b>number</b></p>
                 <p id="length" className="invalid">Minimum <b>8 characters</b></p>
             </div>
-            
         </div>
     )
 }
