@@ -38,7 +38,17 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
 
     return (
         <div className="signupPage">
-            
+            <nav className="mainNav">
+                <button>
+                    <Link to="/home">Home</Link>
+                </button>
+                <button>
+                    <Link to="/login">Login</Link>
+                </button>
+                <button>
+                    <Link to="/signup">Sign Up</Link>
+                </button>
+            </nav>
             <p className="error">{error}</p>
             <form onSubmit={formHandler}>
                 <input className="signup-input" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
@@ -55,17 +65,7 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
                 <p id="number" className="invalid">A <b>number</b></p>
                 <p id="length" className="invalid">Minimum <b>8 characters</b></p>
             </div>
-            <nav className="mainNav">
-                <button>
-                    <Link to="/home">Home</Link>
-                </button>
-                <button>
-                    <Link to="/login">Login</Link>
-                </button>
-                <button>
-                    <Link to="/signup">Sign Up</Link>
-                </button>
-            </nav>
+            
         </div>
     )
 }
