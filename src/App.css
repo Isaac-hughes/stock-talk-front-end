@@ -98,6 +98,11 @@ p {
     color: #F8EDED;
 }
 
+.loginVid {
+    margin: auto;
+    display: block;
+}
+
 .signupPage {
     display: flex;
     flex-wrap: wrap;
