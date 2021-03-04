@@ -1,7 +1,7 @@
 import '../App.css';
 import React, {useState} from 'react'
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom'
-
+import clip from '../assets/landing.mp4';
 
 const LogIn = ({user, setUser, setIsAuthenticated}) => {
     const [email, setEmail] = useState("")
@@ -40,8 +40,9 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
                 <input type="password" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
                 <button>Login</button>
             </form>
+            <br></br>
         <div className="loginPage">
-            <nav className="mainNav">
+            <nav className="mainNav gradient-border">
                 <button>
                     <Link to="/home">Home</Link>
                 </button>
@@ -53,6 +54,11 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
                 </button>
             </nav>
             </div>
+            <h1>Sociabull</h1>
+            <br></br>
+            <video width="150px" height="150px" autoPlay loop muted className="loginVid">
+            <source src={clip} type="video/mp4"/>
+            </video>
         </div>
     )
 }
