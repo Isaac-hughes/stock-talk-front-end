@@ -20,13 +20,16 @@ const companyCashFlow = (e) => {
 
     return(
       <div>
-            <p>Company Cash Flow</p>
+        <div className="subHead">
+            <h3>Company Cash Flow</h3>
             <button onClick={companyCashFlow}>Show</button>
+              </div>
               <div>
                 {cashFlow.map(((data, index) => {
                 return (
                   <div key={index}>
-                  <h1>Company Cash Flow</h1>
+                  <h2>Company Cash Flow</h2>
+                  <br/>
                   <p>Fiscal Date Ending: {data.annualReports[0].fiscalDateEnding}</p>
                   <p>Reported Currency: {data.annualReports[0].reportedCurrency}</p>
                   <br/>

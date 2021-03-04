@@ -29,8 +29,19 @@ const Intraday = (text, setText) => {
                  foreColor: '#333',
               },
          style: {
-                   fontSize: '3px'   
+                   fontSize: '3px',
+                   color: ['#02030d']   
                  },
+          theme: {
+          mode: 'dark', 
+          palette: 'palette10', 
+          monochrome: {
+              enabled: false,
+              color: '#02030d',
+              shadeTo: 'light',
+              shadeIntensity: 0.65
+          }
+        },
          xaxis: {
                  categories: [
                   price[0].data[0].date,
@@ -49,7 +60,7 @@ const Intraday = (text, setText) => {
                  }
              },
              fill: {
-                 colors: ['#f44336']
+                 colors: ['#02030d']
              },
              dataLabels: {
                  enabled: false
@@ -88,13 +99,15 @@ const Intraday = (text, setText) => {
  
       return(
         <div>
-            <p>Get Current Share Price</p>
+          <div className="subHead">
+            <h3>Get Current Share Price</h3>
             <button onClick={companyIntraday}>Show</button>
+                </div>
                 <div>
                 {price.map(((data, index) => {
                 return (
                   <div key={index}>
-                  <h1>Stock price for {data.data[0].symbol} on date {data.data[0].date}</h1>
+                  <h2>Stock price for {data.data[0].symbol} on date {data.data[0].date}</h2>
                   <p>High Price: {data.data[0].high}</p>
                   <p>Current Price: {data.data[0].last}</p>
                   <p>Low Price: {data.data[0].low}</p>

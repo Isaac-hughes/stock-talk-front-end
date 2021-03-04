@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
 import Chart from 'react-apexcharts';
+import '../../api.css';
 
 const Intraday = () => { 
 
@@ -48,11 +49,22 @@ const Intraday = () => {
          options: {
              chart: {
                  background: '#02030D',
-                 foreColor: '#f295de',
+                 foreColor: '#333',
               },
          style: {
-                   fontSize: '13px'   
+                   fontSize: '13px',   
+                   color: ['#02030d'] 
                  },
+        theme: {
+        mode: 'dark', 
+        palette: 'palette10', 
+        monochrome: {
+            enabled: false,
+            color: '#02030d',
+            shadeTo: 'light',
+            shadeIntensity: 0.65
+        }
+      },
          xaxis: {
                  categories: [
                   price[0].data[0].date,
@@ -70,7 +82,7 @@ const Intraday = () => {
                  }
              },
              fill: {
-                 colors: ['#f44336']
+                 colors: ['#02030d']
              },
              dataLabels: {
                  enabled: false
@@ -109,7 +121,8 @@ const Intraday = () => {
  
       return(
         <div>
-            <p>Enter ticker symbol below to get current price</p>
+          <div className="subHead">
+            <h3>Enter ticker symbol below to get current price</h3>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
@@ -118,6 +131,7 @@ const Intraday = () => {
               />
               <button type="submit">Search</button>
             </form>
+            </div>
             {undef ? (
               <div>
                 No company found
@@ -127,7 +141,7 @@ const Intraday = () => {
                 {price.map(((data, index) => {
                 return (
                   <div key={index}>
-                  <h1>Stock price for {data.data[0].symbol} on date {data.data[0].date}</h1>
+                  <h2>Stock price for {data.data[0].symbol} on date {data.data[0].date}</h2>
                   <p>High Price: {data.data[0].high}</p>
                   <p>Current Price: {data.data[0].last}</p>
                   <p>Low Price: {data.data[0].low}</p>
