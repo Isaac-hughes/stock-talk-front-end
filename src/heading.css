@@ -1,0 +1,37 @@
+
+.landingTitle {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: #7a36c1;
+  background-repeat: no-repeat;
+  transition: background 0.2s ease-out;
+  white-space: nowrap;
+}
+
+span {
+  position: relative;
+}
+
+span:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 43px;
+  background: #d48ac5;
+  bottom: 45px;
+  transition: all 0.2s ease-out;
+}
+
+.landingTitle:hover {
+  background-position: 0 11px;
+}
+
+span:hover:before {
+  color: #f8eded !important;
+  transform: translateY(45px)
+}

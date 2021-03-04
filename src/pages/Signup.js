@@ -39,7 +39,7 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
     return (
         <div className="signupPage">
 
-            <nav className="mainNav">
+            <nav className="mainNav gradient-border">
                 <button>
                     <Link to="/home">Home</Link>
                 </button>
@@ -51,20 +51,24 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
                 </button>
             </nav>
             <p className="error">{error}</p>
-            <form onSubmit={formHandler}>
+            <form onSubmit={formHandler} className="signupForm">
+            <div className="signupSep">
                 <input className="signup-input" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
                 <input className="signup-input" type="text" placeholder="Username" pattern="[a-z0-9]+" onChange={(e) => setUsername(e.target.value)} />
+            </div>
+            <div className="signupSep">
                 <input className="signup-input" type="email" maxLength="256" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                 <input className="signup-input" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
+            </div>
                 <button className="signUpButton">Sign Up</button>
             </form>
 
             <div id="message">
                 <h3>Password must contain the following:</h3>
-                <p id="letter" className="invalid">A <b>lowercase</b> letter</p>
-                <p id="capital" className="invalid">A <b>capital (uppercase)</b> letter</p>
-                <p id="number" className="invalid">A <b>number</b></p>
-                <p id="length" className="invalid">Minimum <b>8 characters</b></p>
+                <p id="letter">A <b>lowercase</b> letter</p>
+                <p id="capital">A <b>capital (uppercase)</b> letter</p>
+                <p id="number">A <b>number</b></p>
+                <p id="length">Minimum <b>8 characters</b></p>
             </div>
         </div>
     )

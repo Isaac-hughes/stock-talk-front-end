@@ -34,12 +34,7 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
 
     return (
         <div>
-            <p className="error">{error}</p>
-            <form onSubmit={formHandler}>
-                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                <input type="password" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
-                <button>Login</button>
-            </form>
+            
             <br></br>
         <div className="loginPage">
             <nav className="mainNav gradient-border">
@@ -54,9 +49,18 @@ const LogIn = ({user, setUser, setIsAuthenticated}) => {
                 </button>
             </nav>
             </div>
-            <h1>Sociabull</h1>
+            <p className="error">{error}</p>
+            <form onSubmit={formHandler}>
+            <div className="signupForm">
+                <div className="signupSep">
+                    <input className="signup-input" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                    <input className="signup-input" type="password" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
+                </div>
+                <button className="signupButton">Login</button>
+            </div>
+            </form>
             <br></br>
-            <video width="150px" height="150px" autoPlay loop muted className="loginVid">
+            <video width="400px" height="400px" autoPlay loop muted className="loginVid">
             <source src={clip} type="video/mp4"/>
             </video>
         </div>

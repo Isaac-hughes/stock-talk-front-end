@@ -9,12 +9,6 @@ body {
         color: #F8EDED;
 }
 
-#message {
-    color: #F8EDED;
-    text-align: center;
-
-}
-
 h1 {
     color: #F8EDED;
     display: flex;
@@ -28,6 +22,10 @@ h3 {
     align-items: center;
 }
 
+.landingTitle {
+    font-size: 3em;
+    font-weight: 1000;
+}
 
 .Home {
     display: flex;
@@ -272,20 +270,45 @@ p {
     justify-content: center;
 }
 
+.signupForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .signup-input {
-    width: 140px;
-    height: 70px;
-    border-radius: 50px;
-    margin: 0px 20px;
+    width: 160px;
+    height: 30px;
+    border-radius: 15px;
+    margin: 20px 20px;
     display: flex;
     box-shadow: 0 20px 50px 0 rgba( 31, 38, 135, 0.37 );
     justify-content: center;
     align-items: center;
-    color: #21B5B5;    
+    color: #02030D;    
     text-align: center;
+    background-color: f8eded;
 }
 
 .signUpButton {
+    margin: 20px;
     display: flex;
     align-items: center;
+}
+.signupSep{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sign-signUpButton:focus {
+    outline: none;
+}
+
+#message {
+    color: #F8EDED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
