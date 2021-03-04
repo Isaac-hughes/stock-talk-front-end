@@ -25,9 +25,10 @@ const BalanceSheet = (text, setText) => {
 
     return(
         <div>
-              <p>Company Balance Sheet</p>
+          <div className="subHead">
+              <h3>Company Balance Sheet</h3>
                 <button onClick={companyBalanceSheet}>Show</button>
-  
+              </div>
                 {undef ? (
               <div>
                 No Balance Sheet information found for this company
@@ -37,7 +38,8 @@ const BalanceSheet = (text, setText) => {
                     {balSheet.map(((data, index) => {
                 return (
                   <div key={index}>
-                  <h1>Balance Sheet</h1>
+                  <h2>Balance Sheet</h2>
+                  <br/>
                   <p>Fiscal Date Ending: {data.annualReports[0].fiscalDateEnding}</p>
                   <p>Reported Currency: {data.annualReports[0].reportedCurrency}</p>
                   <br/>

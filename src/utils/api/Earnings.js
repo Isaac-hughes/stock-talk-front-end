@@ -20,13 +20,16 @@ const Earnings = (text, setText) => {
 
     return(
         <div>
-              <p>Company Earnings</p>
+          <div className="subHead">
+              <h3>Company Earnings</h3>
               <button onClick={companyEarnings}>Show</button>
-                <div>
+               </div> 
+               <div>
                     {earnings.map(((data, index) => {
                 return (
                   <div key={index}>
-                  <h1>Earnings for the last 10 years</h1>
+                  <h2>Earnings for the last 10 years</h2>
+                  <br/>
                   <p>Earnings to date ending {data.annualEarnings[0].fiscalDateEnding}: ${data.annualEarnings[0].reportedEPS} Million</p>
                   <p>Earnings to date ending {data.annualEarnings[1].fiscalDateEnding}: ${data.annualEarnings[1].reportedEPS} Million</p>
                   <p>Earnings to date ending {data.annualEarnings[2].fiscalDateEnding}: ${data.annualEarnings[2].reportedEPS} Million</p>

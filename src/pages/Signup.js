@@ -39,7 +39,7 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
     return (
         <div className="signupPage">
 
-                <nav className="mainNav">
+            <nav className="mainNav">
                 <button>
                     <Link to="/home">Home</Link>
                 </button>
@@ -50,7 +50,6 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
                     <Link to="/signup">Sign Up</Link>
                 </button>
             </nav>
-            
             <p className="error">{error}</p>
             <form onSubmit={formHandler}>
                 <input className="signup-input" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
