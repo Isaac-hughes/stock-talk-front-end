@@ -38,24 +38,8 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
 
     return (
         <div className="signupPage">
-            
-            <p className="error">{error}</p>
-            <form onSubmit={formHandler}>
-                <input className="signup-input" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
-                <input className="signup-input" type="text" placeholder="Username" pattern="[a-z0-9]+" onChange={(e) => setUsername(e.target.value)} />
-                <input className="signup-input" type="email" maxLength="256" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                <input className="signup-input" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
-                <button>Sign Up</button>
-            </form>
 
-            <div id="message">
-                <h3>Password must contain the following:</h3>
-                <p id="letter" className="invalid">A <b>lowercase</b> letter</p>
-                <p id="capital" className="invalid">A <b>capital (uppercase)</b> letter</p>
-                <p id="number" className="invalid">A <b>number</b></p>
-                <p id="length" className="invalid">Minimum <b>8 characters</b></p>
-            </div>
-            <nav className="mainNav">
+                <nav className="mainNav">
                 <button>
                     <Link to="/home">Home</Link>
                 </button>
@@ -66,6 +50,23 @@ const SignUp = ({setUser, setIsAuthenticated}) => {
                     <Link to="/signup">Sign Up</Link>
                 </button>
             </nav>
+            
+            <p className="error">{error}</p>
+            <form onSubmit={formHandler}>
+                <input className="signup-input" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
+                <input className="signup-input" type="text" placeholder="Username" pattern="[a-z0-9]+" onChange={(e) => setUsername(e.target.value)} />
+                <input className="signup-input" type="email" maxLength="256" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                <input className="signup-input" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
+                <button className="signUpButton">Sign Up</button>
+            </form>
+
+            <div id="message">
+                <h3>Password must contain the following:</h3>
+                <p id="letter" className="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" className="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" className="invalid">A <b>number</b></p>
+                <p id="length" className="invalid">Minimum <b>8 characters</b></p>
+            </div>
         </div>
     )
 }
