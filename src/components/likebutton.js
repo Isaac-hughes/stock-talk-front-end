@@ -9,6 +9,7 @@ const LikeButton = ({id, user, likeCount}) => {
     const [numLikes, setNumLikes] = useState(likeCount)
 
     const handleClick = async () => {
+      // on click
         let post = await getPost(id)
         let bool = false
         for(let i = 0; i < post[0].likes.length; i++){
