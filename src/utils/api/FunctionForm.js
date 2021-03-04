@@ -29,8 +29,19 @@ const Intraday = (text, setText) => {
                  foreColor: '#333',
               },
          style: {
-                   fontSize: '3px'   
+                   fontSize: '3px',
+                   color: ['#02030d']   
                  },
+          theme: {
+          mode: 'dark', 
+          palette: 'palette10', 
+          monochrome: {
+              enabled: false,
+              color: '#02030d',
+              shadeTo: 'light',
+              shadeIntensity: 0.65
+          }
+        },
          xaxis: {
                  categories: [
                   price[0].data[0].date,

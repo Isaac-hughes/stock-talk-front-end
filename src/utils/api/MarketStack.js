@@ -48,11 +48,21 @@ const Intraday = () => {
          options: {
              chart: {
                  background: '#02030D',
-                 foreColor: '#f295de',
+                 foreColor: '#02030d',
               },
          style: {
                    fontSize: '13px'   
                  },
+        theme: {
+        mode: 'dark', 
+        palette: 'palette10', 
+        monochrome: {
+            enabled: false,
+            color: '#02030d',
+            shadeTo: 'light',
+            shadeIntensity: 0.65
+        }
+      },
          xaxis: {
                  categories: [
                   price[0].data[0].date,
@@ -70,7 +80,7 @@ const Intraday = () => {
                  }
              },
              fill: {
-                 colors: ['#f44336']
+                 colors: ['#02030d']
              },
              dataLabels: {
                  enabled: false
