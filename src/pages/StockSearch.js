@@ -66,8 +66,12 @@ const companyOverview = () => {
 
         
       </nav>
-        <h2>Company Information (NASDAQ)</h2>
-            <p>Enter ticker symbol below</p>
+      <br/>
+      <br/>
+      <div className="mainHead">
+        <h1>Company Information (NASDAQ)</h1>
+            
+            
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
@@ -76,9 +80,10 @@ const companyOverview = () => {
               />
               <button type="submit">Search</button>
             </form>
+            </div>
               {undef ? (
               <div className="noCompanyMessage">
-                No company found
+                Enter a NASDAQ ticker symbol above
               </div>
               ) : (
               <div>
@@ -114,8 +119,12 @@ const companyOverview = () => {
               </div>
             )}
       <div>
-        <h2>Stock Prices (Global)</h2>
         <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h1>Stock Prices (Global)</h1>
       <MarketStack/> 
 
 

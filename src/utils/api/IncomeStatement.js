@@ -33,13 +33,16 @@ const IncomeStatement = (text, setText) => {
 
     return(
         <div>
-              <p>Company Income Statement</p>
+          <div className="subHead">
+              <h3>Company Income Statement</h3>
                 <button onClick={companyIncomeStatement}>Show</button>
+                </div>
                 <div>
                     {incStat.map(((data, index) => {
                 return (
                   <div key={index}>
-                  <h1>Income Statement</h1>
+                  <h2>Income Statement</h2>
+                  <br/>
                   <p>Fiscal Date Ending: {data.annualReports[0].fiscalDateEnding}</p>
                   <p>Reported Currency: {data.annualReports[0].reportedCurrency}</p>
                   <br/>
