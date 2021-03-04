@@ -16,6 +16,7 @@ const PostMap = ({user}) => {
             getPostsByFollowing(setPosts, setPostLoaded)
         }
     } else {
+        // user is not defined
         console.log("name undifined")
     }
 
